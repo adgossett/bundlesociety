@@ -94,10 +94,16 @@ function Home() {
         <div className="absolute inset-0 bg-background/88" />
 
         <div className="relative mx-auto flex min-h-[92vh] max-w-4xl flex-col items-center justify-center px-4 pb-16 pt-28 text-center sm:pt-32">
-          <h1 className="font-display text-6xl font-semibold leading-none tracking-tight sm:text-8xl lg:text-9xl">
-            <span className="text-pink-deep">The</span>{" "}
-            <span className="text-foreground">Bundle</span>{" "}
-            <span className="text-primary">Society</span>
+          <h1>
+            <span className="sr-only">The Bundle Society</span>
+            <img
+              src={logoAsset.url}
+              alt=""
+              aria-hidden
+              className="mx-auto w-72 drop-shadow-sm sm:w-[26rem] lg:w-[30rem]"
+              width={1096}
+              height={643}
+            />
           </h1>
           <p className="mt-4 max-w-md text-base text-muted-foreground sm:text-lg">
             Premium human hair bundles — soft, full and long-lasting.
