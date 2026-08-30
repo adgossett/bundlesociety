@@ -87,27 +87,14 @@ export function CartPlayground({ products }: { products: Product[] }) {
           className="relative mt-6 block w-full rounded-3xl bg-muted p-4 text-left transition-transform hover:-translate-y-0.5"
         >
           <img
-            src={basketImg}
-            alt="Empty shopping basket"
+            key={bump}
+            src={count === 0 ? basketEmptyImg : basketFullImg}
+            alt={count === 0 ? "Empty wire shopping cart with pink handle" : "Shopping cart filled with bundle boxes"}
             loading="lazy"
             width={1024}
             height={768}
-            className="mx-auto w-full max-w-sm"
+            className="mx-auto w-full max-w-sm animate-in zoom-in-95 duration-300"
           />
-          <div
-            key={bump}
-            className="pointer-events-none absolute inset-x-0 bottom-[22%] mx-auto flex max-w-[60%] flex-wrap items-end justify-center gap-1"
-          >
-            {lines.slice(0, 6).map((line) => (
-              <img
-                key={`${line.productId}-${line.length}`}
-                src={imageFor(line.imageKey)}
-                alt=""
-                aria-hidden
-                className="size-12 rounded-lg object-cover shadow-card"
-              />
-            ))}
-          </div>
           {count === 0 && (
             <p className="mt-2 text-center text-sm text-muted-foreground">
               Your basket is empty — tap to add a bundle.
