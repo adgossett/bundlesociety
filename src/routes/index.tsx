@@ -6,7 +6,7 @@ import { formatPrice, type Product } from "@/lib/shop";
 import { ProductCard } from "@/components/ProductCard";
 import { ArrowButton } from "@/components/ArrowButton";
 import { SearchTypewriter } from "@/components/SearchTypewriter";
-import flyerAsset from "@/assets/flyer.png.asset.json";
+import flyerAsset from "@/assets/flyer-clean.png.asset.json";
 
 
 const productsQuery = queryOptions({
