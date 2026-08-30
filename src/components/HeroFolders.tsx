@@ -43,12 +43,14 @@ const folders: FolderDef[] = [
  * hot-spots: hover/click lights a folder up and its product pops out.
  */
 export function HeroFolders() {
-  const [active, setActive] = useState<string | null>(null);
+  const [hovered, setHovered] = useState<string | null>(null);
+  const [pinned, setPinned] = useState<string | null>(null);
+  const active = hovered ?? pinned;
 
   return (
     <div
       aria-label="Product folders"
-      className="pointer-events-none absolute bottom-4 right-0 top-28 hidden aspect-[928/1152] select-none md:block lg:right-6"
+      className="pointer-events-none absolute bottom-4 right-0 top-28 z-20 hidden aspect-[928/1152] select-none md:block lg:right-6"
     >
       <img
         src={flyerEmpty}
@@ -67,8 +69,9 @@ export function HeroFolders() {
             type="button"
             aria-pressed={isActive}
             aria-label={`${folder.label} folder — tap to reveal`}
-            onClick={() => setActive(isActive ? null : folder.id)}
-            onMouseEnter={() => setActive(folder.id)}
+            onClick={() => setPinned(pinned === folder.id ? null : folder.id)}
+            onMouseEnter={() => setHovered(folder.id)}
+            onMouseLeave={() => setHovered(null)}
             className="group pointer-events-auto absolute cursor-pointer rounded-xl outline-none transition-all duration-300 focus-visible:ring-4 focus-visible:ring-primary/60"
             style={folder.box}
           >
