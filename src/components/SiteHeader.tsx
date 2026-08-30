@@ -109,14 +109,14 @@ export function SiteHeader() {
 
       {/* Desktop pill nav */}
       <div className="mx-auto mt-4 hidden max-w-7xl justify-center px-4 lg:flex">
-        <nav className="scrollbar-hide flex max-w-full items-center gap-1 overflow-x-auto rounded-full bg-white p-2 shadow-card sm:gap-2 sm:px-3">
+        <nav className="scrollbar-hide flex max-w-full items-center gap-1 overflow-x-auto rounded-full bg-foreground p-2 shadow-card sm:gap-2 sm:px-3">
           {links.map((link) => (
             <Link
               key={`${link.to}-${link.label}`}
               to={link.to}
               activeOptions={{ exact: link.to === "/" }}
               activeProps={{ className: "bg-primary text-primary-foreground" }}
-              inactiveProps={{ className: "text-foreground hover:text-primary" }}
+              inactiveProps={{ className: "text-background hover:text-primary" }}
               className="shrink-0 rounded-full px-4 py-2.5 text-xs font-extrabold uppercase tracking-wide transition-colors sm:px-6 sm:text-sm"
             >
               {link.label}
