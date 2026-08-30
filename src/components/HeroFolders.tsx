@@ -61,6 +61,50 @@ export function HeroFolders() {
         height={1152}
       />
 
+      {/* Curved arrows pointing at each folder from different sides */}
+      <svg
+        viewBox="0 0 100 100"
+        preserveAspectRatio="none"
+        className="absolute inset-0 z-20 size-full overflow-visible"
+        aria-hidden="true"
+      >
+        <defs>
+          <marker id="arrowhead-lime" markerWidth="6" markerHeight="6" refX="5" refY="3" orient="auto" markerUnits="strokeWidth">
+            <path d="M0,0 L6,3 L0,6 Z" fill="hsl(78 55% 52%)" />
+          </marker>
+          <marker id="arrowhead-pink" markerWidth="6" markerHeight="6" refX="5" refY="3" orient="auto" markerUnits="strokeWidth">
+            <path d="M0,0 L6,3 L0,6 Z" fill="hsl(336 78% 72%)" />
+          </marker>
+        </defs>
+        {/* Top folder — from above, pointing down-right */}
+        <path
+          d="M 48 4 Q 58 2 66 10"
+          fill="none"
+          stroke="hsl(78 55% 52%)"
+          strokeWidth="0.55"
+          markerEnd="url(#arrowhead-lime)"
+          opacity="0.9"
+        />
+        {/* Middle folder — from left, pointing right */}
+        <path
+          d="M 42 23 Q 52 23 64 24"
+          fill="none"
+          stroke="hsl(336 78% 72%)"
+          strokeWidth="0.55"
+          markerEnd="url(#arrowhead-pink)"
+          opacity="0.9"
+        />
+        {/* Bottom folder — from below, pointing up-right */}
+        <path
+          d="M 48 48 Q 58 44 66 35"
+          fill="none"
+          stroke="hsl(78 55% 52%)"
+          strokeWidth="0.55"
+          markerEnd="url(#arrowhead-lime)"
+          opacity="0.9"
+        />
+      </svg>
+
       {folders.map((folder) => {
         const isActive = active === folder.id;
         return (
