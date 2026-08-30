@@ -19,7 +19,7 @@ export function LoadingScreen() {
   return (
     <div
       aria-hidden
-      className={`fixed inset-0 z-[100] flex flex-col items-center justify-center bg-[#FBF7EE] transition-opacity duration-700 ${
+      className={`fixed inset-0 z-[100] flex flex-col items-center justify-center bg-white transition-opacity duration-700 ${
         fading ? "pointer-events-none opacity-0" : "opacity-100"
       }`}
     >
