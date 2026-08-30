@@ -19,21 +19,21 @@ const folders: FolderDef[] = [
     label: "Bundles",
     productImg: bundlesAsset.url,
     accent: "bg-pink-soft",
-    box: { left: "70%", top: "-2%", width: "21.5%", height: "11.5%" },
+    box: { left: "70%", top: "12%", width: "21.5%", height: "11.5%" },
   },
   {
     id: "lashes",
     label: "Lashes",
     productImg: lashesAsset.url,
     accent: "bg-primary",
-    box: { left: "70%", top: "10%", width: "21.5%", height: "11.5%" },
+    box: { left: "70%", top: "24%", width: "21.5%", height: "11.5%" },
   },
   {
     id: "lipgloss",
     label: "Lip Gloss",
     productImg: lipglossAsset.url,
     accent: "bg-pink-soft",
-    box: { left: "70%", top: "22%", width: "21.5%", height: "11.5%" },
+    box: { left: "70%", top: "36%", width: "21.5%", height: "11.5%" },
   },
 ];
 
