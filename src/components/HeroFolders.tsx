@@ -42,11 +42,11 @@ export function HeroFolders() {
 
   return (
     <div className="relative mx-auto w-full max-w-sm select-none lg:max-w-md">
-      <div className="relative overflow-hidden rounded-[2rem] border border-border/60 bg-white shadow-card">
+      <div className="relative">
         <img
           src={flyerEmpty}
           alt="The Bundle Society studio — desk with three product folders"
-          className="block w-full"
+          className="block w-full rounded-[2rem] border border-border/60 bg-white shadow-card"
           width={928}
           height={1152}
         />
