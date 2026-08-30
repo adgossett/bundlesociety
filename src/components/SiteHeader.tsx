@@ -6,6 +6,11 @@ import { useCart } from "@/lib/cart";
 const links = [
   { to: "/", label: "Home" },
   { to: "/shop", label: "Shop" },
+  { to: "/shop", label: "Bundles" },
+  { to: "/shop", label: "Wigs" },
+  { to: "/shop", label: "Frontals" },
+  { to: "/shop", label: "Closures" },
+  { to: "/contact", label: "Custom Order" },
   { to: "/contact", label: "Contact" },
 ];
 
