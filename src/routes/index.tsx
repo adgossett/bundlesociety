@@ -86,6 +86,7 @@ function Home() {
             Custom Order
           </Link>
         </div>
+        </div>
       </section>
 
       <section className="mt-6 grid gap-4 sm:grid-cols-3">
