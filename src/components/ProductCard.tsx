@@ -27,7 +27,7 @@ export function ProductCard({ product }: { product: Product }) {
   return (
     <div className="group">
       {/* Image + hover quick add (Shopify style) */}
-      <div className="relative overflow-hidden rounded-2xl bg-muted">
+      <div className="relative overflow-hidden rounded-2xl border border-border bg-card">
         <Link to="/shop/$slug" params={{ slug: product.slug }} aria-label={product.name}>
           <img
             src={imageFor(product.image_key)}
@@ -48,7 +48,7 @@ export function ProductCard({ product }: { product: Product }) {
         <button
           type="button"
           onClick={quickAdd}
-          className="absolute inset-x-3 bottom-3 flex translate-y-3 items-center justify-center gap-2 rounded-full bg-ink/90 py-3 font-display text-sm font-semibold text-ink-foreground opacity-0 backdrop-blur transition-all duration-300 hover:bg-ink group-hover:translate-y-0 group-hover:opacity-100"
+          className="absolute inset-x-3 bottom-3 flex translate-y-3 items-center justify-center gap-2 rounded-full bg-foreground/90 py-3 font-display text-sm font-semibold text-background opacity-0 backdrop-blur transition-all duration-300 hover:bg-foreground group-hover:translate-y-0 group-hover:opacity-100"
         >
           <ShoppingBag className="size-4" /> Quick add · {defaultLength}"
         </button>
