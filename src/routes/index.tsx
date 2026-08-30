@@ -140,12 +140,17 @@ function Home() {
             ))}
           </ul>
 
+          <div className="mt-14 w-full">
+            <FolderShelf />
+          </div>
+
           <div className="mt-14 flex w-full items-center justify-between border-t border-foreground/15 pt-5 text-sm text-muted-foreground">
             <p>Starting at {formatPrice(Number.isFinite(lowest) ? lowest : 20000)}</p>
             <p className="flex items-center gap-2">
               Scroll to explore <ArrowDown className="size-4 animate-bounce" />
             </p>
           </div>
+
         </div>
       </section>
 
