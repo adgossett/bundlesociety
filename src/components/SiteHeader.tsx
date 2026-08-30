@@ -74,6 +74,15 @@ export function SiteHeader() {
           <Logo size="sm" />
         </Link>
 
+        {/* Desktop search button (left) */}
+        <Link
+          to="/shop"
+          aria-label="Search bundles"
+          className="absolute left-4 top-1/2 hidden size-11 -translate-y-1/2 place-items-center rounded-full border border-foreground/20 text-foreground transition-colors hover:bg-white/30 lg:grid"
+        >
+          <Search className="size-4" />
+        </Link>
+
         <div className="absolute right-4 top-1/2 flex -translate-y-1/2 items-center gap-1.5 sm:right-8 sm:gap-3">
           <span className="hidden text-sm font-semibold text-foreground lg:inline">
             United States | USD $
@@ -81,7 +90,7 @@ export function SiteHeader() {
           <Link
             to="/shop"
             aria-label="Search bundles"
-            className="grid size-10 place-items-center rounded-full border border-foreground/20 text-foreground transition-colors hover:bg-white/30 sm:size-11"
+            className="grid size-10 place-items-center rounded-full border border-foreground/20 text-foreground transition-colors hover:bg-white/30 sm:size-11 lg:hidden"
           >
             <Search className="size-4" />
           </Link>
@@ -109,14 +118,14 @@ export function SiteHeader() {
 
       {/* Desktop pill nav */}
       <div className="mx-auto mt-4 hidden max-w-7xl justify-center px-4 lg:flex">
-        <nav className="scrollbar-hide flex max-w-full items-center gap-1 overflow-x-auto rounded-full bg-white p-2 shadow-card sm:gap-2 sm:px-3">
+        <nav className="scrollbar-hide flex max-w-full items-center gap-1 overflow-x-auto rounded-full bg-foreground p-2 shadow-card sm:gap-2 sm:px-3">
           {links.map((link) => (
             <Link
               key={`${link.to}-${link.label}`}
               to={link.to}
               activeOptions={{ exact: link.to === "/" }}
               activeProps={{ className: "bg-primary text-primary-foreground" }}
-              inactiveProps={{ className: "text-foreground hover:text-primary" }}
+              inactiveProps={{ className: "text-background hover:text-primary" }}
               className="shrink-0 rounded-full px-4 py-2.5 text-xs font-extrabold uppercase tracking-wide transition-colors sm:px-6 sm:text-sm"
             >
               {link.label}
