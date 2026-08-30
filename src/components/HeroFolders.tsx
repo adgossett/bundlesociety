@@ -1,4 +1,5 @@
 import { useState } from "react";
+import flyerEmpty from "@/assets/flyer-empty.png";
 import bundlesAsset from "@/assets/bundles.jpg.asset.json";
 import lashesAsset from "@/assets/lashes.jpg.asset.json";
 import lipglossAsset from "@/assets/lipgloss.jpg.asset.json";
@@ -7,8 +8,9 @@ type FolderDef = {
   id: string;
   label: string;
   productImg: string;
-  folder: string; // tailwind bg class for the folder body
-  accent: string; // tailwind bg class for the label chip
+  accent: string; // tailwind bg class for label chip
+  // hot-spot box over the folder in the artwork (percentages)
+  box: { left: string; top: string; width: string; height: string };
 };
 
 const folders: FolderDef[] = [
@@ -16,28 +18,29 @@ const folders: FolderDef[] = [
     id: "bundles",
     label: "Bundles",
     productImg: bundlesAsset.url,
-    folder: "bg-pink-soft",
     accent: "bg-pink-soft",
+    box: { left: "74%", top: "2%", width: "23%", height: "13%" },
   },
   {
     id: "lashes",
     label: "Lashes",
     productImg: lashesAsset.url,
-    folder: "bg-primary",
     accent: "bg-primary",
+    box: { left: "74%", top: "15.5%", width: "24%", height: "12.5%" },
   },
   {
     id: "lipgloss",
     label: "Lip Gloss",
     productImg: lipglossAsset.url,
-    folder: "bg-pink-soft",
     accent: "bg-pink-soft",
+    box: { left: "74.5%", top: "29%", width: "23%", height: "12%" },
   },
 ];
 
 /**
- * Three interactive product folders. Closed they look like plain empty
- * folders; hover or click lights one up and its product rises out of it.
+ * The hero artwork (woman at desk with three folders) rendered as a
+ * right-anchored layer of the hero section, with interactive folder
+ * hot-spots: hover/click lights a folder up and its product pops out.
  */
 export function HeroFolders() {
   const [hovered, setHovered] = useState<string | null>(null);
@@ -47,8 +50,17 @@ export function HeroFolders() {
   return (
     <div
       aria-label="Product folders"
-      className="flex w-full items-end justify-center gap-4 sm:gap-6"
+      className="pointer-events-none absolute bottom-4 right-0 top-24 hidden aspect-[928/1152] w-[min(58vw,44rem)] select-none md:block lg:right-6"
     >
+      <img
+        src={flyerEmpty}
+        alt=""
+        aria-hidden
+        className="absolute inset-0 size-full object-contain object-right [mask-image:linear-gradient(to_left,black_72%,transparent)]"
+        width={928}
+        height={1152}
+      />
+
       {folders.map((folder) => {
         const isActive = active === folder.id;
         return (
@@ -60,50 +72,38 @@ export function HeroFolders() {
             onClick={() => setPinned(pinned === folder.id ? null : folder.id)}
             onMouseEnter={() => setHovered(folder.id)}
             onMouseLeave={() => setHovered(null)}
-            className="group relative w-[30%] max-w-[11rem] cursor-pointer pt-24 outline-none sm:pt-28"
+            className="group pointer-events-auto absolute z-30 cursor-pointer rounded-xl outline-none transition-all duration-300 focus-visible:ring-4 focus-visible:ring-primary/60"
+            style={folder.box}
           >
-            {/* product rises out of the folder */}
+            {/* glow / light-up layer */}
             <span
-              className={`pointer-events-none absolute bottom-[62%] left-1/2 w-[78%] -translate-x-1/2 transition-all duration-500 ease-out ${
-                isActive ? "translate-y-0 scale-100 opacity-100" : "translate-y-8 scale-75 opacity-0"
+              className={`absolute inset-0 rounded-xl transition-all duration-300 ${
+                isActive
+                  ? "bg-white/25 ring-4 ring-primary shadow-[0_0_40px_8px_hsl(var(--primary)/0.55)]"
+                  : "ring-0 group-hover:bg-white/20 group-hover:ring-4 group-hover:ring-primary/70 group-hover:shadow-[0_0_32px_6px_hsl(var(--primary)/0.45)]"
+              }`}
+            />
+
+            {/* product pops out of the folder */}
+            <span
+              className={`pointer-events-none absolute left-1/2 top-0 w-[85%] -translate-x-1/2 transition-all duration-500 ease-out ${
+                isActive
+                  ? "-translate-y-[88%] opacity-100 scale-100"
+                  : "translate-y-0 opacity-0 scale-75"
               }`}
             >
               <img
                 src={folder.productImg}
                 alt=""
                 aria-hidden
-                className="aspect-square w-full rounded-2xl border-4 border-background object-cover shadow-card"
-              />
-            </span>
-
-            {/* folder tab */}
-            <span
-              className={`absolute left-3 top-[calc(100%-4.75rem)] h-4 w-[42%] rounded-t-lg transition-colors duration-300 ${folder.folder} ${
-                isActive ? "brightness-105" : "opacity-80 group-hover:opacity-100"
-              }`}
-            />
-
-            {/* folder body */}
-            <span
-              className={`relative block aspect-[4/3] w-full rounded-xl rounded-tl-none transition-all duration-300 ${folder.folder} ${
-                isActive
-                  ? "-translate-y-1 shadow-[0_0_40px_8px_hsl(var(--primary)/0.45)] ring-4 ring-primary"
-                  : "shadow-card ring-0 group-hover:-translate-y-1 group-hover:ring-4 group-hover:ring-primary/60"
-              }`}
-            >
-              <span
-                className={`absolute inset-x-3 bottom-3 h-1.5 rounded-full bg-background/50 transition-opacity ${
-                  isActive ? "opacity-100" : "opacity-60"
-                }`}
+                className="aspect-square w-full rounded-2xl border-4 border-white object-cover shadow-card"
               />
             </span>
 
             {/* label chip */}
             <span
-              className={`pointer-events-none absolute -bottom-3 left-1/2 -translate-x-1/2 whitespace-nowrap rounded-full bg-background px-3 py-1 font-display text-[11px] font-semibold text-foreground shadow-card transition-all duration-300 ${
-                isActive
-                  ? "translate-y-0 opacity-100"
-                  : "translate-y-1 opacity-0 group-hover:translate-y-0 group-hover:opacity-100"
+              className={`pointer-events-none absolute -bottom-3 left-1/2 -translate-x-1/2 whitespace-nowrap rounded-full px-3 py-1 font-display text-[11px] font-semibold text-foreground shadow-card transition-all duration-300 ${folder.accent} ${
+                isActive ? "opacity-100 translate-y-0" : "opacity-0 translate-y-1 group-hover:opacity-100 group-hover:translate-y-0"
               }`}
             >
               {folder.label}
