@@ -50,7 +50,15 @@ function Home() {
 
   return (
     <div className="mx-auto max-w-6xl px-4 pt-6">
-      <section className="flex flex-col items-center rounded-[2.5rem] bg-card px-6 py-16 text-center shadow-pop sm:py-24">
+      <section className="relative flex flex-col items-center overflow-hidden rounded-[2.5rem] bg-card px-6 py-16 text-center shadow-pop sm:py-24">
+        <img
+          src={flyerAsset.url}
+          alt=""
+          aria-hidden
+          className="absolute inset-0 size-full object-cover object-[center_30%]"
+        />
+        <div className="absolute inset-0 bg-background/70 backdrop-blur-[2px]" />
+        <div className="relative flex w-full flex-col items-center">
         <h1 className="font-display text-5xl font-semibold tracking-tight sm:text-7xl">
           <span className="text-primary">The</span>{" "}
           <span className="text-pink-deep">Bundle</span>{" "}
