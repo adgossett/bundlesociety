@@ -8,6 +8,7 @@ import { SearchTypewriter } from "@/components/SearchTypewriter";
 import { CartPlayground } from "@/components/CartPlayground";
 
 import flyerAsset from "@/assets/flyer-clean.png.asset.json";
+import logoAsset from "@/assets/logo.png.asset.json";
 
 const productsQuery = queryOptions({
   queryKey: ["products"],
