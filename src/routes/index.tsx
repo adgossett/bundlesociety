@@ -1,24 +1,150 @@
-import { createFileRoute } from "@tanstack/react-router";
+import { createFileRoute, Link } from "@tanstack/react-router";
+import { queryOptions, useSuspenseQuery } from "@tanstack/react-query";
+import { Check, Sparkles } from "lucide-react";
+import { listProducts } from "@/lib/shop.functions";
+import { formatPrice, type Product } from "@/lib/shop";
+import { ProductCard } from "@/components/ProductCard";
+import { ArrowButton } from "@/components/ArrowButton";
+import { Logo } from "@/components/Logo";
+import heroImg from "@/assets/hero.jpg";
 
-// No head() here: the home route inherits title/description/og/twitter from
-// __root.tsx, and ships no og:image so serve-time hosting can inject the
-// project's social preview (explicit og:image or latest screenshot).
-export const Route = createFileRoute("/")({
-  component: Index,
+const productsQuery = queryOptions({
+  queryKey: ["products"],
+  queryFn: () => listProducts(),
 });
 
-// IMPORTANT: Replace this placeholder. See ./README.md for routing conventions.
-function Index() {
+export const Route = createFileRoute("/")({
+  loader: ({ context }) => context.queryClient.ensureQueryData(productsQuery),
+  head: () => ({
+    meta: [
+      { title: "The Bundle Society — Premium Hair Bundles from $200" },
+      {
+        name: "description",
+        content:
+          "Soft, full and long-lasting premium hair bundles in straight, body wave and deep wave. Multiple lengths, custom orders welcome.",
+      },
+      { property: "og:title", content: "The Bundle Society — Premium Hair Bundles from $200" },
+      {
+        property: "og:description",
+        content: "Premium straight, body wave and deep wave bundles. Build your look today.",
+      },
+    ],
+  }),
+  component: Home,
+});
+
+const benefits = [
+  "Premium hair bundles",
+  "Soft, full, and long-lasting",
+  "Straight • Body Wave • Deep Wave",
+  "Multiple lengths available",
+  "Custom bundle orders welcome",
+];
+
+function Home() {
+  const { data } = useSuspenseQuery(productsQuery);
+  const products = data as Product[];
+  const featured = products.filter((p) => p.featured).slice(0, 3);
+  const lowest = products.reduce((min, p) => Math.min(min, p.price_cents), Infinity);
+
   return (
-    <div
-      className="flex min-h-screen items-center justify-center"
-      style={{ backgroundColor: "#fcfbf8" }}
-    >
-      <img
-        data-lovable-blank-page-placeholder="REMOVE_THIS"
-        src="https://cdn.gpteng.co/blank-app-v1.svg"
-        alt="Your app will live here!"
-      />
+    <div className="mx-auto max-w-6xl px-4 pt-6">
+      <section className="grid gap-6 lg:grid-cols-[1.05fr_0.95fr]">
+        <div className="flex flex-col justify-between gap-8 rounded-[2.5rem] bg-card p-8 shadow-pop sm:p-12">
+          <Logo size="lg" />
+          <div>
+            <p className="mb-7 max-w-md text-lg text-muted-foreground">
+              Luxury bundles for the woman who never shows up half-done. Choose your texture, choose
+              your length, and we'll handle the rest.
+            </p>
+            <ArrowButton to="/shop">
+              Let's build
+              <br />
+              your look
+            </ArrowButton>
+          </div>
+        </div>
+        <div className="overflow-hidden rounded-[2.5rem] bg-muted shadow-pop">
+          <img
+            src={heroImg}
+            alt="Model with long glossy hair wearing a black blazer and beret"
+            width={1024}
+            height={1280}
+            className="size-full object-cover"
+          />
+        </div>
+      </section>
+
+      <section className="mt-6 grid gap-4 sm:grid-cols-3">
+        {["Straight", "Body Wave", "Deep Wave"].map((texture, i) => (
+          <Link
+            key={texture}
+            to="/shop"
+            search={{ texture }}
+            className={`rounded-3xl px-6 py-8 font-display text-2xl font-semibold shadow-card transition-transform hover:-translate-y-1 ${
+              i === 1
+                ? "bg-primary text-primary-foreground"
+                : "bg-pink-soft text-accent-foreground"
+            }`}
+          >
+            {texture}
+            <span className="mt-1 block text-sm font-semibold opacity-80">Shop the texture</span>
+          </Link>
+        ))}
+      </section>
+
+      <section className="mt-16">
+        <div className="mb-6 flex flex-wrap items-end justify-between gap-3">
+          <h2 className="font-display text-4xl font-semibold">
+            Choose your <span className="text-pink-deep">perfect bundle</span>
+          </h2>
+          <Link to="/shop" className="font-semibold text-primary hover:underline">
+            View all bundles →
+          </Link>
+        </div>
+        <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+          {featured.map((product) => (
+            <ProductCard key={product.id} product={product} />
+          ))}
+        </div>
+      </section>
+
+      <section className="mt-16 grid gap-6 rounded-[2.5rem] bg-card p-8 shadow-pop sm:p-12 lg:grid-cols-2">
+        <div>
+          <p className="font-display text-sm font-semibold uppercase tracking-[0.3em] text-pink-deep">
+            For
+          </p>
+          <h2 className="font-display text-6xl font-semibold text-primary">
+            Starting at {formatPrice(Number.isFinite(lowest) ? lowest : 20000)}
+          </h2>
+          <p className="mt-4 max-w-sm text-muted-foreground">
+            Every set is quality-checked before it ships. Mix textures and lengths for a fully
+            custom order.
+          </p>
+          <div className="mt-8">
+            <ArrowButton to="/shop" tone="pink">
+              Select the bundles
+              <br />
+              you love
+            </ArrowButton>
+          </div>
+        </div>
+        <ul className="space-y-4">
+          {benefits.map((benefit) => (
+            <li key={benefit} className="flex items-start gap-3">
+              <span className="mt-0.5 grid size-6 shrink-0 place-items-center rounded-full bg-pink-soft">
+                <Check className="size-3.5 text-accent-foreground" />
+              </span>
+              <span className="font-display text-lg font-semibold">{benefit}</span>
+            </li>
+          ))}
+        </ul>
+      </section>
+
+      <section className="mt-6 flex items-center gap-3 rounded-3xl bg-card px-6 py-5 shadow-card">
+        <Sparkles className="size-5 text-pink-deep" />
+        <p className="font-display text-xl font-semibold">Limited bundles available</p>
+      </section>
     </div>
   );
 }
