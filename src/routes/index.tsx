@@ -6,6 +6,8 @@ import { formatPrice, type Product } from "@/lib/shop";
 import { ProductCard } from "@/components/ProductCard";
 import { ArrowButton } from "@/components/ArrowButton";
 import { SearchTypewriter } from "@/components/SearchTypewriter";
+import { CartPlayground } from "@/components/CartPlayground";
+
 import flyerAsset from "@/assets/flyer-clean.png.asset.json";
 
 
@@ -89,7 +91,10 @@ function Home() {
         </div>
       </section>
 
+      <CartPlayground products={products} />
+
       <section className="mt-6 grid gap-4 sm:grid-cols-3">
+
         {["Straight", "Body Wave", "Deep Wave"].map((texture, i) => (
           <Link
             key={texture}
