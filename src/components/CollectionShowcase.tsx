@@ -42,16 +42,16 @@ export function CollectionShowcase({ products }: { products: Product[] }) {
                 type="button"
                 onClick={() => setActive(c.id)}
                 aria-pressed={isActive}
-                className={`group relative overflow-hidden rounded-3xl border text-left transition-all duration-300 hover:-translate-y-1 ${
+                className={`group relative overflow-hidden border-2 p-2 text-left transition-all duration-300 hover:-translate-y-1 ${
                   isActive
-                    ? "border-primary shadow-pop ring-2 ring-primary"
+                    ? "border-foreground shadow-pop"
                     : "border-border shadow-sm hover:border-pink-deep"
                 } ${c.tone === "pink" ? "bg-pink-soft" : "bg-primary/25"}`}
               >
-                <span className="absolute left-1/2 top-3 z-10 -translate-x-1/2 rounded-full bg-background/85 px-3 py-1 text-[10px] font-bold uppercase tracking-[0.3em] text-accent-foreground backdrop-blur">
+                <span className="absolute left-1/2 top-4 z-10 w-max -translate-x-1/2 whitespace-nowrap bg-background/85 px-2 py-0.5 text-[8px] font-bold uppercase tracking-[0.25em] text-accent-foreground backdrop-blur">
                   Shop by collection
                 </span>
-                <div className="relative aspect-[4/5] w-full">
+                <div className="relative aspect-[4/5] w-full overflow-hidden">
                   <img
                     src={imageFor(c.imageKey)}
                     alt={`${c.title} collection`}
@@ -94,7 +94,7 @@ export function CollectionShowcase({ products }: { products: Product[] }) {
           <p className="mx-auto mt-3 max-w-md text-center text-sm text-muted-foreground">
             Premium human hair bundles — soft, full and long-lasting. Tap a collection above to switch.
           </p>
-          <div className="mt-10 grid gap-x-5 gap-y-10 grid-cols-2 lg:grid-cols-4">
+          <div className="mt-10 grid grid-cols-2 gap-x-5 gap-y-10 lg:grid-cols-4 [&_.rounded-2xl]:rounded-none [&_.rounded-2xl]:border [&_.rounded-2xl]:border-border [&_.rounded-2xl]:bg-background">
             {shown.map((product) => (
               <ProductCard key={product.id} product={product} />
             ))}
