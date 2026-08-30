@@ -73,7 +73,7 @@ export function SiteHeader() {
       </div>
 
       {/* Desktop pill nav */}
-      <div className="mx-auto mt-3 hidden max-w-7xl justify-center px-4 md:flex sm:mt-4">
+      <div className="mx-auto mt-3 hidden max-w-7xl justify-center px-4 sm:mt-4 lg:flex">
         <nav className="scrollbar-hide flex max-w-full items-center gap-1 overflow-x-auto rounded-full bg-white p-2 shadow-card sm:gap-2 sm:px-3">
           {links.map((link) => (
             <Link
@@ -91,7 +91,7 @@ export function SiteHeader() {
       </div>
 
       {/* Mobile hamburger */}
-      <div className="mx-auto mt-3 flex max-w-7xl justify-center px-4 md:hidden sm:mt-4">
+      <div className="mx-auto mt-3 flex max-w-7xl justify-center px-4 sm:mt-4 lg:hidden">
         <Sheet open={open} onOpenChange={setOpen}>
           <SheetTrigger asChild>
             <button
