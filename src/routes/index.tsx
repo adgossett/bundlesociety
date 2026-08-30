@@ -211,17 +211,25 @@ function Home() {
         </div>
       </section>
 
-      {/* FEATURED BUNDLES */}
+      {/* FEATURED BUNDLES — Shopify-style collection */}
       <section className="mx-auto max-w-6xl px-4 py-20 sm:py-24">
-        <div className="mb-8 flex flex-wrap items-end justify-between gap-3">
-          <h2 className="font-display text-3xl font-semibold sm:text-5xl">
-            Featured <span className="text-primary">sets</span>
-          </h2>
-          <Link to="/shop" className="font-semibold text-primary hover:underline">
-            View all bundles →
+        <div className="mb-10 flex flex-wrap items-end justify-between gap-4">
+          <div>
+            <p className="text-xs font-bold uppercase tracking-[0.3em] text-pink-deep">
+              The collection
+            </p>
+            <h2 className="mt-2 font-display text-3xl font-semibold sm:text-5xl">
+              Featured sets
+            </h2>
+          </div>
+          <Link
+            to="/shop"
+            className="rounded-full border border-foreground/20 px-6 py-2.5 font-display text-sm font-semibold transition-colors hover:bg-ink hover:text-ink-foreground"
+          >
+            View all
           </Link>
         </div>
-        <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+        <div className="grid gap-x-6 gap-y-10 sm:grid-cols-2 lg:grid-cols-3">
           {featured.map((product) => (
             <ProductCard key={product.id} product={product} />
           ))}
