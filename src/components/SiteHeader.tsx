@@ -31,7 +31,7 @@ export function SiteHeader() {
     <header className="sticky top-0 z-40 bg-header pb-4 pt-4 shadow-sm sm:pb-6 sm:pt-6">
       <div className="relative mx-auto flex max-w-7xl items-center justify-center px-4 sm:px-8">
         {/* Mobile hamburger */}
-        <div className="absolute left-4 top-1/2 -translate-y-1/2 lg:hidden">
+        <div className="absolute left-4 top-1/2 -translate-y-1/2 md:hidden">
           <Sheet open={open} onOpenChange={setOpen}>
             <SheetTrigger asChild>
               <button
@@ -78,19 +78,19 @@ export function SiteHeader() {
         <Link
           to="/shop"
           aria-label="Search bundles"
-          className="absolute left-4 top-1/2 hidden size-11 -translate-y-1/2 place-items-center rounded-full border border-foreground/20 text-foreground transition-colors hover:bg-white/30 lg:grid"
+          className="absolute left-4 top-1/2 hidden size-11 -translate-y-1/2 place-items-center rounded-full border border-foreground/20 text-foreground transition-colors hover:bg-white/30 md:grid"
         >
           <Search className="size-4" />
         </Link>
 
         <div className="absolute right-4 top-1/2 flex -translate-y-1/2 items-center gap-1.5 sm:right-8 sm:gap-3">
-          <span className="hidden text-sm font-semibold text-foreground lg:inline">
+          <span className="hidden text-sm font-semibold text-foreground md:inline">
             United States | USD $
           </span>
           <Link
             to="/shop"
             aria-label="Search bundles"
-            className="grid size-10 place-items-center rounded-full border border-foreground/20 text-foreground transition-colors hover:bg-white/30 sm:size-11 lg:hidden"
+            className="grid size-10 place-items-center rounded-full border border-foreground/20 text-foreground transition-colors hover:bg-white/30 sm:size-11 md:hidden"
           >
             <Search className="size-4" />
           </Link>
@@ -117,7 +117,7 @@ export function SiteHeader() {
       </div>
 
       {/* Desktop pill nav */}
-      <div className="mx-auto mt-4 hidden max-w-7xl justify-center px-4 lg:flex">
+      <div className="mx-auto mt-4 hidden max-w-7xl justify-center px-4 md:flex">
         <nav className="scrollbar-hide flex max-w-full items-center gap-1 overflow-x-auto rounded-full bg-foreground p-2 shadow-card sm:gap-2 sm:px-3">
           {links.map((link) => (
             <Link
