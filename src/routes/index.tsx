@@ -6,7 +6,40 @@ import { formatPrice, type Product } from "@/lib/shop";
 import { ProductCard } from "@/components/ProductCard";
 import { ArrowButton } from "@/components/ArrowButton";
 import { SearchTypewriter } from "@/components/SearchTypewriter";
-...
+
+const productsQuery = queryOptions({
+  queryKey: ["products"],
+  queryFn: () => listProducts(),
+});
+
+export const Route = createFileRoute("/")({
+  loader: ({ context }) => context.queryClient.ensureQueryData(productsQuery),
+  head: () => ({
+    meta: [
+      { title: "The Bundle Society — Premium Hair Bundles from $200" },
+      {
+        name: "description",
+        content:
+          "Soft, full and long-lasting premium hair bundles in straight, body wave and deep wave. Multiple lengths, custom orders welcome.",
+      },
+      { property: "og:title", content: "The Bundle Society — Premium Hair Bundles from $200" },
+      {
+        property: "og:description",
+        content: "Premium straight, body wave and deep wave bundles. Build your look today.",
+      },
+    ],
+  }),
+  component: Home,
+});
+
+const benefits = [
+  "Premium hair bundles",
+  "Soft, full, and long-lasting",
+  "Straight • Body Wave • Deep Wave",
+  "Multiple lengths available",
+  "Custom bundle orders welcome",
+];
+
 function Home() {
   const { data } = useSuspenseQuery(productsQuery);
   const products = data as Product[];
