@@ -88,10 +88,6 @@ function Home() {
     <div className="w-full">
       {/* HERO — Google-style search scene; artwork with interactive folders lives in the hero itself */}
       <section className="relative isolate overflow-hidden">
-        {/* Ambient background glows */}
-        <div className="absolute -top-[10%] -right-[5%] h-[500px] w-[500px] rounded-full bg-primary/15 blur-[120px]" aria-hidden />
-        <div className="absolute -bottom-[10%] -left-[5%] h-[400px] w-[400px] rounded-full bg-pink-soft/25 blur-[100px]" aria-hidden />
-
         <HeroFolders />
 
         <div className="relative z-10 mx-auto flex min-h-[92vh] w-full max-w-7xl flex-col justify-center px-4 pb-16 pt-32 sm:px-6 sm:pt-36 lg:px-10">
@@ -118,20 +114,6 @@ function Home() {
               />
             </div>
 
-            {/* Trending chips */}
-            <div className="mt-4 flex flex-wrap items-center justify-center gap-2 md:justify-start">
-              <span className="text-xs font-semibold uppercase tracking-wider text-muted-foreground/60">Try:</span>
-              {["Body wave", "Deep wave", "Custom sets"].map((chip) => (
-                <Link
-                  key={chip}
-                  to="/shop"
-                  className="rounded-full border border-border bg-background px-4 py-1.5 text-sm font-medium text-muted-foreground shadow-sm transition-colors hover:border-primary hover:text-foreground"
-                >
-                  {chip}
-                </Link>
-              ))}
-            </div>
-
             <div className="mt-8 flex flex-wrap justify-center gap-3 md:justify-start">
               <Link
                 to="/shop"
@@ -156,22 +138,6 @@ function Home() {
               ))}
             </ul>
 
-            {/* Social proof */}
-            <div className="mt-8 flex flex-wrap items-center justify-center gap-x-6 gap-y-3 md:justify-start">
-              <div className="flex items-center gap-3 rounded-full border border-border/60 bg-card/50 px-4 py-2 backdrop-blur-sm">
-                <div className="flex -space-x-2">
-                  <div className="size-6 rounded-full border-2 border-white bg-pink-soft" />
-                  <div className="size-6 rounded-full border-2 border-white bg-primary/40" />
-                  <div className="size-6 rounded-full border-2 border-white bg-pink-deep/30" />
-                </div>
-                <span className="text-sm font-medium text-muted-foreground">Trusted by 1,200+ clients</span>
-              </div>
-              <div className="flex items-center gap-1 text-sm font-medium text-muted-foreground">
-                <span className="text-amber-400">★★★★★</span>
-                <span>4.9/5 rating</span>
-              </div>
-            </div>
-
             <div className="mt-10 flex w-full flex-col gap-3 border-t border-foreground/15 pt-5 text-sm text-muted-foreground sm:flex-row sm:items-center sm:justify-between">
               <p>Starting at {formatPrice(Number.isFinite(lowest) ? lowest : 20000)}</p>
               <p className="flex items-center justify-center gap-2 md:justify-start">
@@ -181,7 +147,6 @@ function Home() {
           </div>
         </div>
       </section>
-
 
 
       {/* RESULT CHIPS + STAT BAR */}
