@@ -42,13 +42,13 @@ export function CollectionShowcase({ products }: { products: Product[] }) {
                 type="button"
                 onClick={() => setActive(c.id)}
                 aria-pressed={isActive}
-                className={`group relative overflow-hidden border-2 p-2 text-left transition-all duration-300 hover:-translate-y-1 ${
+                className={`group relative overflow-hidden border-2 bg-card p-2 text-left transition-all duration-300 hover:-translate-y-1 ${
                   isActive
-                    ? "border-foreground shadow-pop"
+                    ? "border-primary shadow-pop"
                     : "border-border shadow-sm hover:border-pink-deep"
-                } ${c.tone === "pink" ? "bg-pink-soft" : "bg-primary/25"}`}
+                }`}
               >
-                <span className="absolute left-1/2 top-4 z-10 w-max -translate-x-1/2 whitespace-nowrap bg-background/85 px-2 py-0.5 text-[8px] font-bold uppercase tracking-[0.25em] text-accent-foreground backdrop-blur">
+                <span className="absolute left-1/2 top-4 z-10 w-max -translate-x-1/2 whitespace-nowrap bg-background/90 px-2 py-0.5 text-[8px] font-bold uppercase tracking-[0.25em] text-pink-deep backdrop-blur">
                   Shop by collection
                 </span>
                 <div className="relative aspect-[4/5] w-full overflow-hidden">
@@ -56,7 +56,7 @@ export function CollectionShowcase({ products }: { products: Product[] }) {
                     src={imageFor(c.imageKey)}
                     alt={`${c.title} collection`}
                     loading="lazy"
-                    className="absolute inset-0 size-full object-cover mix-blend-multiply opacity-90 transition-transform duration-500 group-hover:scale-105"
+                    className="absolute inset-0 size-full object-cover opacity-90 transition-transform duration-500 group-hover:scale-105"
                   />
                   <span
                     className="absolute bottom-6 left-5 font-display text-4xl font-extrabold uppercase leading-none tracking-tight text-foreground sm:text-5xl"
@@ -72,12 +72,12 @@ export function CollectionShowcase({ products }: { products: Product[] }) {
       </div>
 
       {/* Ticker strip */}
-      <div className="overflow-hidden border-y border-border/60 bg-ink py-2.5">
+      <div className="overflow-hidden border-y border-border/60 bg-card/60 py-2.5">
         <div className="flex w-max animate-marquee gap-8 whitespace-nowrap">
           {Array.from({ length: 12 }).map((_, i) => (
             <span
               key={i}
-              className="font-display text-xs font-bold uppercase tracking-[0.45em] text-ink-foreground"
+              className="font-display text-xs font-bold uppercase tracking-[0.45em] text-foreground"
             >
               {current.title}
             </span>
@@ -86,7 +86,7 @@ export function CollectionShowcase({ products }: { products: Product[] }) {
       </div>
 
       {/* Active collection grid */}
-      <div className="bg-pink-soft/50">
+      <div className="bg-background">
         <div className="mx-auto max-w-6xl px-4 py-16 sm:py-20">
           <h2 className="text-center font-display text-4xl font-extrabold uppercase tracking-tight sm:text-6xl">
             {current.heading}
@@ -94,7 +94,7 @@ export function CollectionShowcase({ products }: { products: Product[] }) {
           <p className="mx-auto mt-3 max-w-md text-center text-sm text-muted-foreground">
             Premium human hair bundles — soft, full and long-lasting. Tap a collection above to switch.
           </p>
-          <div className="mt-10 grid grid-cols-2 gap-x-5 gap-y-10 lg:grid-cols-4 [&_.rounded-2xl]:rounded-none [&_.rounded-2xl]:border [&_.rounded-2xl]:border-border [&_.rounded-2xl]:bg-background">
+          <div className="mt-10 grid grid-cols-2 gap-x-5 gap-y-10 lg:grid-cols-4 [&_.rounded-2xl]:rounded-none [&_.rounded-2xl]:border [&_.rounded-2xl]:border-border [&_.rounded-2xl]:bg-card">
             {shown.map((product) => (
               <ProductCard key={product.id} product={product} />
             ))}
