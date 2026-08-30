@@ -86,67 +86,68 @@ function Home() {
 
   return (
     <div className="w-full">
-      {/* HERO — Google-style search scene; artwork with interactive folders lives in the hero itself */}
+      {/* HERO — Google-style search scene with interactive product folders */}
       <section className="relative isolate overflow-hidden">
-        <HeroFolders />
+        <div className="relative z-10 mx-auto flex min-h-[88vh] w-full max-w-4xl flex-col justify-center px-4 pb-16 pt-28 text-center sm:px-6 sm:pt-32">
+          <h1>
+            <span className="sr-only">The Bundle Society</span>
+            <img
+              src={logoAsset.url}
+              alt=""
+              aria-hidden
+              className="mx-auto w-64 drop-shadow-sm sm:w-80 lg:w-96"
+              width={1096}
+              height={643}
+            />
+          </h1>
+          <p className="mx-auto mt-4 max-w-md text-base text-muted-foreground sm:text-lg">
+            Premium human hair bundles — soft, full and long-lasting.
+          </p>
 
-        <div className="relative z-10 mx-auto flex min-h-[92vh] w-full max-w-7xl flex-col justify-center px-4 pb-16 pt-32 sm:px-6 sm:pt-36 lg:px-10">
-          <div className="w-full max-w-xl text-center md:max-w-[34rem] md:text-left lg:max-w-[38rem]">
-            <h1>
-              <span className="sr-only">The Bundle Society</span>
-              <img
-                src={logoAsset.url}
-                alt=""
-                aria-hidden
-                className="mx-auto w-64 drop-shadow-sm sm:w-80 md:mx-0 lg:w-96"
-                width={1096}
-                height={643}
-              />
-            </h1>
-            <p className="mx-auto mt-4 max-w-md text-base text-muted-foreground sm:text-lg md:mx-0">
-              Premium human hair bundles — soft, full and long-lasting.
+          <div className="mt-8 w-full sm:mt-10">
+            <SearchTypewriter
+              suggestions={["straight bundles", "body wave sets", "custom orders"]}
+              className="mx-auto"
+            />
+          </div>
+
+          <div className="mt-8 flex flex-wrap justify-center gap-3">
+            <Link
+              to="/shop"
+              className="rounded-full bg-primary px-7 py-3.5 font-display text-base font-semibold text-primary-foreground shadow-card transition-transform hover:-translate-y-0.5"
+            >
+              Shop bundles
+            </Link>
+            <Link
+              to="/contact"
+              className="rounded-full bg-pink-soft px-7 py-3.5 font-display text-base font-semibold text-accent-foreground shadow-card transition-transform hover:-translate-y-0.5"
+            >
+              Custom order
+            </Link>
+          </div>
+
+          <div className="mx-auto mt-14 w-full max-w-2xl">
+            <HeroFolders />
+          </div>
+
+          <ul className="mt-12 flex flex-wrap justify-center gap-x-6 gap-y-2 text-sm text-muted-foreground">
+            {heroPoints.map((point) => (
+              <li key={point} className="flex items-center gap-2">
+                <span className="size-1.5 rounded-full bg-primary" />
+                {point}
+              </li>
+            ))}
+          </ul>
+
+          <div className="mt-8 flex w-full flex-col gap-3 border-t border-foreground/15 pt-5 text-sm text-muted-foreground sm:flex-row sm:items-center sm:justify-between">
+            <p>Starting at {formatPrice(Number.isFinite(lowest) ? lowest : 20000)}</p>
+            <p className="flex items-center justify-center gap-2">
+              Scroll to explore <ArrowDown className="size-4 animate-bounce" />
             </p>
-
-            <div className="mt-8 w-full sm:mt-10">
-              <SearchTypewriter
-                suggestions={["straight bundles", "body wave sets", "custom orders"]}
-                className="mx-auto md:mx-0"
-              />
-            </div>
-
-            <div className="mt-8 flex flex-wrap justify-center gap-3 md:justify-start">
-              <Link
-                to="/shop"
-                className="rounded-full bg-primary px-7 py-3.5 font-display text-base font-semibold text-primary-foreground shadow-card transition-transform hover:-translate-y-0.5"
-              >
-                Shop bundles
-              </Link>
-              <Link
-                to="/contact"
-                className="rounded-full bg-pink-soft px-7 py-3.5 font-display text-base font-semibold text-accent-foreground shadow-card transition-transform hover:-translate-y-0.5"
-              >
-                Custom order
-              </Link>
-            </div>
-
-            <ul className="mt-8 flex flex-wrap justify-center gap-x-6 gap-y-2 text-sm text-muted-foreground md:justify-start">
-              {heroPoints.map((point) => (
-                <li key={point} className="flex items-center gap-2">
-                  <span className="size-1.5 rounded-full bg-primary" />
-                  {point}
-                </li>
-              ))}
-            </ul>
-
-            <div className="mt-10 flex w-full flex-col gap-3 border-t border-foreground/15 pt-5 text-sm text-muted-foreground sm:flex-row sm:items-center sm:justify-between">
-              <p>Starting at {formatPrice(Number.isFinite(lowest) ? lowest : 20000)}</p>
-              <p className="flex items-center justify-center gap-2 md:justify-start">
-                Scroll to explore <ArrowDown className="size-4 animate-bounce" />
-              </p>
-            </div>
           </div>
         </div>
       </section>
+
 
       {/* RESULT CHIPS + STAT BAR */}
       <section className="border-y border-border/60 bg-card/60">
