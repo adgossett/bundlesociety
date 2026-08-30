@@ -3,7 +3,13 @@ import { ArrowUpLeft, Search } from "lucide-react";
 
 const QUERY = "The bundle society";
 
-export function SearchTypewriter({ suggestions }: { suggestions?: string[] }) {
+export function SearchTypewriter({
+  suggestions,
+  className = "mx-auto",
+}: {
+  suggestions?: string[];
+  className?: string;
+}) {
   const [text, setText] = useState("");
   const [done, setDone] = useState(false);
 
@@ -35,7 +41,7 @@ export function SearchTypewriter({ suggestions }: { suggestions?: string[] }) {
   const showSuggestions = suggestions && suggestions.length > 0 && text.length >= 4;
 
   return (
-    <div className="relative mx-auto w-full max-w-xl">
+    <div className={`relative w-full max-w-xl ${className}`}>
       <div className="flex w-full items-center gap-3 rounded-full border border-border bg-card px-5 py-4 shadow-pop transition-shadow hover:shadow-card focus-within:shadow-card">
         <Search className="size-5 shrink-0 text-muted-foreground" />
         <div className="relative flex-1 text-left text-lg">

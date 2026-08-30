@@ -50,13 +50,13 @@ export function HeroFolders() {
   return (
     <div
       aria-label="Product folders"
-      className="pointer-events-none absolute bottom-4 right-0 top-28 z-20 hidden aspect-[928/1152] select-none md:block lg:right-6"
+      className="pointer-events-none absolute bottom-4 right-0 top-24 hidden aspect-[928/1152] w-[min(58vw,44rem)] select-none md:block lg:right-6"
     >
       <img
         src={flyerEmpty}
         alt=""
         aria-hidden
-        className="absolute inset-0 size-full object-contain object-right [mask-image:linear-gradient(to_left,black_70%,transparent)]"
+        className="absolute inset-0 size-full object-contain object-right [mask-image:linear-gradient(to_left,black_72%,transparent)]"
         width={928}
         height={1152}
       />
