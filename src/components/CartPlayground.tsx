@@ -26,7 +26,7 @@ const STEPS = [
 ];
 
 export function CartPlayground({ products }: { products: Product[] }) {
-  const { add, lines, count, subtotal } = useCart();
+  const { add, count, subtotal } = useCart();
   const [bump, setBump] = useState(0);
 
   const textures = ["Straight", "Body Wave", "Deep Wave"];
