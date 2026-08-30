@@ -6,7 +6,7 @@ import { formatPrice, type Product } from "@/lib/shop";
 import { ProductCard } from "@/components/ProductCard";
 import { ArrowButton } from "@/components/ArrowButton";
 import { SearchTypewriter } from "@/components/SearchTypewriter";
-import flyerAsset from "@/assets/flyer.png.asset.json";
+import flyerAsset from "@/assets/flyer-clean.png.asset.json";
 
 
 const productsQuery = queryOptions({
@@ -57,7 +57,7 @@ function Home() {
           aria-hidden
           className="absolute inset-0 size-full object-cover object-[center_30%]"
         />
-        <div className="absolute inset-0 bg-background/70 backdrop-blur-[2px]" />
+        <div className="absolute inset-0 bg-background/45" />
         <div className="relative flex w-full flex-col items-center">
         <h1 className="font-display text-5xl font-semibold tracking-tight sm:text-7xl">
           <span className="text-primary">The</span>{" "}
