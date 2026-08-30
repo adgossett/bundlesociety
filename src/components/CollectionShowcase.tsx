@@ -48,7 +48,7 @@ export function CollectionShowcase({ products }: { products: Product[] }) {
                     : "border-border shadow-sm hover:border-pink-deep"
                 } ${c.tone === "pink" ? "bg-pink-soft" : "bg-primary/25"}`}
               >
-                <span className="absolute left-1/2 top-4 z-10 -translate-x-1/2 bg-background/85 px-3 py-1 text-[10px] font-bold uppercase tracking-[0.3em] text-accent-foreground backdrop-blur">
+                <span className="absolute left-1/2 top-4 z-10 w-max -translate-x-1/2 whitespace-nowrap bg-background/85 px-2 py-0.5 text-[8px] font-bold uppercase tracking-[0.25em] text-accent-foreground backdrop-blur">
                   Shop by collection
                 </span>
                 <div className="relative aspect-[4/5] w-full overflow-hidden">
