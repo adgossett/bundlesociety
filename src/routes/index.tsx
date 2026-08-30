@@ -8,7 +8,7 @@ import { SearchTypewriter } from "@/components/SearchTypewriter";
 import { CartPlayground } from "@/components/CartPlayground";
 
 
-import flyerAsset from "@/assets/flyer-clean.png.asset.json";
+import flyerImg from "@/assets/flyer-clean.png";
 import logoAsset from "@/assets/logo.png.asset.json";
 
 const productsQuery = queryOptions({
@@ -88,7 +88,7 @@ function Home() {
       {/* HERO — Google-style search scene on light background */}
       <section className="relative isolate overflow-hidden">
         <img
-          src={flyerAsset.url}
+          src={flyerImg}
           alt=""
           aria-hidden
           className="absolute inset-0 size-full object-cover object-[center_28%]"
