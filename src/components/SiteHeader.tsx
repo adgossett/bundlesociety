@@ -74,6 +74,15 @@ export function SiteHeader() {
           <Logo size="sm" />
         </Link>
 
+        {/* Desktop search button (left) */}
+        <Link
+          to="/shop"
+          aria-label="Search bundles"
+          className="absolute left-4 top-1/2 hidden size-11 -translate-y-1/2 place-items-center rounded-full border border-foreground/20 text-foreground transition-colors hover:bg-white/30 lg:grid"
+        >
+          <Search className="size-4" />
+        </Link>
+
         <div className="absolute right-4 top-1/2 flex -translate-y-1/2 items-center gap-1.5 sm:right-8 sm:gap-3">
           <span className="hidden text-sm font-semibold text-foreground lg:inline">
             United States | USD $
@@ -81,7 +90,7 @@ export function SiteHeader() {
           <Link
             to="/shop"
             aria-label="Search bundles"
-            className="grid size-10 place-items-center rounded-full border border-foreground/20 text-foreground transition-colors hover:bg-white/30 sm:size-11"
+            className="grid size-10 place-items-center rounded-full border border-foreground/20 text-foreground transition-colors hover:bg-white/30 sm:size-11 lg:hidden"
           >
             <Search className="size-4" />
           </Link>
