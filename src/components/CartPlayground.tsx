@@ -2,9 +2,10 @@ import { useState } from "react";
 import { Link } from "@tanstack/react-router";
 import { toast } from "sonner";
 import { MousePointerClick, PackageCheck, Truck } from "lucide-react";
-import basketImg from "@/assets/basket.png";
+import basketFullImg from "@/assets/basket.png";
+import basketEmptyImg from "@/assets/basket-empty.png";
 import { useCart } from "@/lib/cart";
-import { formatPrice, imageFor, type Product } from "@/lib/shop";
+import { formatPrice, type Product } from "@/lib/shop";
 
 const STEPS = [
   {
