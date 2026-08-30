@@ -95,7 +95,7 @@ export function CartPlayground({ products }: { products: Product[] }) {
           />
           <div
             key={bump}
-            className="pointer-events-none absolute inset-x-0 bottom-10 mx-auto flex max-w-[60%] flex-wrap items-end justify-center gap-1"
+            className="pointer-events-none absolute inset-x-0 bottom-[22%] mx-auto flex max-w-[60%] flex-wrap items-end justify-center gap-1"
           >
             {lines.slice(0, 6).map((line) => (
               <img
