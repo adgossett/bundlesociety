@@ -5,8 +5,7 @@ import { listProducts } from "@/lib/shop.functions";
 import { formatPrice, type Product } from "@/lib/shop";
 import { ProductCard } from "@/components/ProductCard";
 import { ArrowButton } from "@/components/ArrowButton";
-import { Logo } from "@/components/Logo";
-import heroImg from "@/assets/hero.jpg";
+import { SearchTypewriter } from "@/components/SearchTypewriter";
 
 const productsQuery = queryOptions({
   queryKey: ["products"],
@@ -49,29 +48,33 @@ function Home() {
 
   return (
     <div className="mx-auto max-w-6xl px-4 pt-6">
-      <section className="grid gap-6 lg:grid-cols-[1.05fr_0.95fr]">
-        <div className="flex flex-col justify-between gap-8 rounded-[2.5rem] bg-card p-8 shadow-pop sm:p-12">
-          <Logo size="lg" />
-          <div>
-            <p className="mb-7 max-w-md text-lg text-muted-foreground">
-              Luxury bundles for the woman who never shows up half-done. Choose your texture, choose
-              your length, and we'll handle the rest.
-            </p>
-            <ArrowButton to="/shop">
-              Let's build
-              <br />
-              your look
-            </ArrowButton>
-          </div>
+      <section className="flex flex-col items-center rounded-[2.5rem] bg-card px-6 py-16 text-center shadow-pop sm:py-24">
+        <h1 className="font-display text-5xl font-semibold tracking-tight sm:text-7xl">
+          <span className="text-primary">The</span>{" "}
+          <span className="text-pink-deep">Bundle</span>{" "}
+          <span className="text-foreground">Society</span>
+        </h1>
+        <p className="mt-4 max-w-md text-muted-foreground">
+          Luxury bundles for the woman who never shows up half-done.
+        </p>
+
+        <div className="mt-10 w-full">
+          <SearchTypewriter />
         </div>
-        <div className="overflow-hidden rounded-[2.5rem] bg-muted shadow-pop">
-          <img
-            src={heroImg}
-            alt="Model with long glossy hair wearing a black blazer and beret"
-            width={1024}
-            height={1280}
-            className="size-full object-cover"
-          />
+
+        <div className="mt-8 flex flex-wrap items-center justify-center gap-4">
+          <Link
+            to="/shop"
+            className="rounded-full bg-primary px-7 py-3 font-display text-lg font-semibold text-primary-foreground shadow-card transition-transform hover:-translate-y-0.5"
+          >
+            Shop Bundles
+          </Link>
+          <Link
+            to="/contact"
+            className="rounded-full bg-pink-soft px-7 py-3 font-display text-lg font-semibold text-accent-foreground shadow-card transition-transform hover:-translate-y-0.5"
+          >
+            Custom Order
+          </Link>
         </div>
       </section>
 
