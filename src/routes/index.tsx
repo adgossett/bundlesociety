@@ -149,35 +149,55 @@ function Home() {
         </div>
       </section>
 
-      {/* STAT BAR */}
-      <section className="bg-ink text-ink-foreground">
-        <div className="mx-auto grid max-w-6xl grid-cols-2 gap-y-8 border-t border-ink-foreground/15 px-4 py-12 sm:grid-cols-4">
-          {stats.map((stat) => (
-            <div key={stat.label} className="px-2">
-              <p className="font-display text-4xl font-semibold text-primary sm:text-5xl">
-                {stat.value}
-              </p>
-              <p className="mt-1 text-sm text-ink-muted">{stat.label}</p>
-            </div>
-          ))}
+      {/* RESULT CHIPS + STAT BAR */}
+      <section className="border-y border-border/60 bg-card/60">
+        <div className="mx-auto max-w-6xl px-4 py-10">
+          <div className="flex flex-wrap justify-center gap-2.5">
+            {["All", "Straight", "Body Wave", "Deep Wave", "Custom sets"].map((chip, i) => (
+              <Link
+                key={chip}
+                to="/shop"
+                {...(i > 0 && i < 4 ? { search: { texture: chip } } : {})}
+                className="rounded-full border border-border bg-background px-5 py-2 text-sm font-medium text-muted-foreground shadow-sm transition-colors hover:border-primary hover:text-foreground"
+              >
+                {chip}
+              </Link>
+            ))}
+          </div>
+
+          <div className="mt-10 grid grid-cols-2 gap-4 sm:grid-cols-4">
+            {stats.map((stat) => (
+              <div
+                key={stat.label}
+                className="rounded-3xl border border-border bg-background px-5 py-6 text-center shadow-sm"
+              >
+                <p className="font-display text-3xl font-semibold text-primary sm:text-4xl">
+                  {stat.value}
+                </p>
+                <p className="mt-1 text-sm text-muted-foreground">{stat.label}</p>
+              </div>
+            ))}
+          </div>
         </div>
       </section>
 
       {/* ABOUT / STATEMENT */}
-      <section className="mx-auto max-w-6xl px-4 py-20 sm:py-28">
-        <p className="text-xs font-bold uppercase tracking-[0.35em] text-pink-deep">The Society</p>
-        <div className="mt-6 grid gap-10 lg:grid-cols-[1.4fr_1fr]">
-          <h2 className="font-display text-4xl font-semibold leading-[1.05] tracking-tight sm:text-6xl">
+      <section className="mx-auto max-w-6xl px-4 py-20 sm:py-24">
+        <div className="rounded-[2.5rem] border border-border bg-card px-6 py-14 shadow-sm sm:px-14">
+          <p className="text-center text-xs font-bold uppercase tracking-[0.35em] text-pink-deep">
+            The Society
+          </p>
+          <h2 className="mx-auto mt-5 max-w-3xl text-center font-display text-3xl font-semibold leading-[1.1] tracking-tight sm:text-5xl">
             Luxury bundles for the woman who never shows up half-done.
           </h2>
-          <div className="flex flex-col justify-end gap-6">
-            <p className="text-muted-foreground">
-              Every set is hand-checked before it ships — no shedding, no thin wefts, no surprises.
-              Mix textures and lengths and we'll build the set around you.
-            </p>
+          <p className="mx-auto mt-5 max-w-xl text-center text-muted-foreground">
+            Every set is hand-checked before it ships — no shedding, no thin wefts, no surprises.
+            Mix textures and lengths and we'll build the set around you.
+          </p>
+          <div className="mt-8 flex justify-center">
             <Link
               to="/shop"
-              className="inline-flex w-fit items-center gap-2 font-display text-lg font-semibold text-primary hover:underline"
+              className="inline-flex items-center gap-2 rounded-full bg-primary px-7 py-3.5 font-display text-base font-semibold text-primary-foreground shadow-card transition-transform hover:-translate-y-0.5"
             >
               Browse the catalogue <ArrowUpRight className="size-5" />
             </Link>
@@ -185,114 +205,110 @@ function Home() {
         </div>
       </section>
 
-      {/* TEXTURES — numbered list */}
-      <section className="border-y border-border/60 bg-card">
-        <div className="mx-auto max-w-6xl px-4 py-16 sm:py-24">
-          <div className="flex flex-wrap items-end justify-between gap-4">
-            <h2 className="font-display text-3xl font-semibold sm:text-5xl">
-              Three signature <span className="text-pink-deep">textures</span>
-            </h2>
-            <p className="text-sm text-muted-foreground">Tap a texture to shop it</p>
-          </div>
+      {/* TEXTURES — result-style cards */}
+      <section className="mx-auto max-w-6xl px-4 pb-20 sm:pb-24">
+        <div className="flex flex-wrap items-end justify-between gap-4">
+          <h2 className="font-display text-3xl font-semibold sm:text-5xl">
+            Three signature <span className="text-pink-deep">textures</span>
+          </h2>
+          <p className="text-sm text-muted-foreground">Tap a texture to shop it</p>
+        </div>
 
-          <div className="mt-10 divide-y divide-border">
-            {textureDetail.map((t) => (
-              <Link
-                key={t.name}
-                to="/shop"
-                search={{ texture: t.name }}
-                className="group grid items-center gap-4 py-8 sm:grid-cols-[6rem_1fr_auto]"
-              >
-                <span className="font-display text-2xl font-semibold text-primary">{t.numeral}</span>
-                <div>
-                  <h3 className="font-display text-3xl font-semibold transition-colors group-hover:text-pink-deep sm:text-4xl">
-                    {t.name}
-                  </h3>
-                  <p className="mt-2 max-w-xl text-muted-foreground">{t.body}</p>
-                </div>
-                <span className="grid size-12 shrink-0 place-items-center rounded-full bg-pink-soft text-accent-foreground transition-transform group-hover:translate-x-1">
-                  <ArrowRight className="size-5" />
-                </span>
-              </Link>
+        <div className="mt-8 grid gap-5 md:grid-cols-3">
+          {textureDetail.map((t) => (
+            <Link
+              key={t.name}
+              to="/shop"
+              search={{ texture: t.name }}
+              className="group flex flex-col rounded-3xl border border-border bg-background p-7 shadow-sm transition-all hover:-translate-y-1 hover:border-primary hover:shadow-card"
+            >
+              <span className="font-display text-xl font-semibold text-primary">{t.numeral}</span>
+              <h3 className="mt-3 font-display text-2xl font-semibold transition-colors group-hover:text-pink-deep sm:text-3xl">
+                {t.name}
+              </h3>
+              <p className="mt-2 flex-1 text-muted-foreground">{t.body}</p>
+              <span className="mt-6 grid size-11 place-items-center rounded-full bg-pink-soft text-accent-foreground transition-transform group-hover:translate-x-1">
+                <ArrowRight className="size-5" />
+              </span>
+            </Link>
+          ))}
+        </div>
+      </section>
+
+      {/* FEATURED BUNDLES — Shopify-style collection */}
+      <section className="border-y border-border/60 bg-card/60">
+        <div className="mx-auto max-w-6xl px-4 py-20 sm:py-24">
+          <div className="mb-10 flex flex-wrap items-end justify-between gap-4">
+            <div>
+              <p className="text-xs font-bold uppercase tracking-[0.3em] text-pink-deep">
+                The collection
+              </p>
+              <h2 className="mt-2 font-display text-3xl font-semibold sm:text-5xl">
+                Featured sets
+              </h2>
+            </div>
+            <Link
+              to="/shop"
+              className="rounded-full border border-foreground/20 bg-background px-6 py-2.5 font-display text-sm font-semibold transition-colors hover:border-primary hover:text-primary"
+            >
+              View all
+            </Link>
+          </div>
+          <div className="grid gap-x-6 gap-y-10 sm:grid-cols-2 lg:grid-cols-3">
+            {featured.map((product) => (
+              <ProductCard key={product.id} product={product} />
             ))}
           </div>
         </div>
       </section>
 
-      {/* FEATURED BUNDLES — Shopify-style collection */}
-      <section className="mx-auto max-w-6xl px-4 py-20 sm:py-24">
-        <div className="mb-10 flex flex-wrap items-end justify-between gap-4">
-          <div>
-            <p className="text-xs font-bold uppercase tracking-[0.3em] text-pink-deep">
-              The collection
-            </p>
-            <h2 className="mt-2 font-display text-3xl font-semibold sm:text-5xl">
-              Featured sets
-            </h2>
-          </div>
-          <Link
-            to="/shop"
-            className="rounded-full border border-foreground/20 px-6 py-2.5 font-display text-sm font-semibold transition-colors hover:bg-ink hover:text-ink-foreground"
-          >
-            View all
-          </Link>
-        </div>
-        <div className="grid gap-x-6 gap-y-10 sm:grid-cols-2 lg:grid-cols-3">
-          {featured.map((product) => (
-            <ProductCard key={product.id} product={product} />
-          ))}
-        </div>
-      </section>
-
       {/* INTERACTIVE BASKET */}
-      <section className="mx-auto max-w-6xl px-4 pb-4">
+      <section className="mx-auto max-w-6xl px-4 pt-20">
         <CartPlayground products={products} />
       </section>
 
       {/* TESTIMONIAL MARQUEE */}
-      <section className="mt-20 overflow-hidden bg-ink py-16 text-ink-foreground">
-        <p className="mx-auto max-w-6xl px-4 text-xs font-bold uppercase tracking-[0.35em] text-primary">
+      <section className="mt-20 overflow-hidden border-y border-border/60 bg-card/60 py-16">
+        <p className="mx-auto max-w-6xl px-4 text-xs font-bold uppercase tracking-[0.35em] text-pink-deep">
           Loved by our clients
         </p>
         <div className="mt-8 flex w-max animate-marquee gap-5">
           {[...testimonials, ...testimonials].map((t, i) => (
             <figure
               key={i}
-              className="w-[22rem] shrink-0 rounded-3xl bg-ink-foreground/5 p-6 ring-1 ring-ink-foreground/10"
+              className="w-[22rem] shrink-0 rounded-3xl border border-border bg-background p-6 shadow-sm"
             >
               <blockquote className="font-display text-lg font-semibold leading-snug">
                 “{t.quote}”
               </blockquote>
-              <figcaption className="mt-4 text-sm text-ink-muted">{t.who}</figcaption>
+              <figcaption className="mt-4 text-sm text-muted-foreground">{t.who}</figcaption>
             </figure>
           ))}
         </div>
       </section>
 
-      {/* CTA BAND */}
-      <section className="mx-auto max-w-6xl px-4 py-20">
-        <div className="rounded-[2.5rem] bg-primary px-8 py-14 text-primary-foreground shadow-pop sm:px-14">
-          <h2 className="max-w-2xl font-display text-4xl font-semibold leading-[1.05] sm:text-6xl">
-            Ready to build your set?
-          </h2>
-          <p className="mt-4 max-w-lg text-primary-foreground/85">
-            Starting at {formatPrice(Number.isFinite(lowest) ? lowest : 20000)}. Limited bundles
-            available each drop.
-          </p>
-          <div className="mt-8 flex flex-wrap gap-3">
-            <Link
-              to="/shop"
-              className="rounded-full bg-ink px-7 py-3.5 font-display text-base font-semibold text-ink-foreground transition-transform hover:-translate-y-0.5"
-            >
-              Shop bundles
-            </Link>
-            <Link
-              to="/contact"
-              className="rounded-full bg-pink-soft px-7 py-3.5 font-display text-base font-semibold text-accent-foreground transition-transform hover:-translate-y-0.5"
-            >
-              Request a custom set
-            </Link>
-          </div>
+      {/* CTA BAND — search prompt style */}
+      <section className="mx-auto max-w-4xl px-4 py-24 text-center">
+        <h2 className="mx-auto max-w-2xl font-display text-4xl font-semibold leading-[1.05] sm:text-5xl">
+          Ready to build your set?
+        </h2>
+        <p className="mx-auto mt-4 max-w-lg text-muted-foreground">
+          Starting at {formatPrice(Number.isFinite(lowest) ? lowest : 20000)}. Limited bundles
+          available each drop.
+        </p>
+        <div className="mt-8 flex flex-wrap justify-center gap-3">
+          <Link
+            to="/shop"
+            className="rounded-full bg-primary px-7 py-3.5 font-display text-base font-semibold text-primary-foreground shadow-card transition-transform hover:-translate-y-0.5"
+          >
+            Shop bundles
+          </Link>
+          <Link
+            to="/contact"
+            className="rounded-full bg-pink-soft px-7 py-3.5 font-display text-base font-semibold text-accent-foreground shadow-card transition-transform hover:-translate-y-0.5"
+          >
+            Request a custom set
+          </Link>
         </div>
       </section>
     </div>
