@@ -66,6 +66,7 @@
   --color-ink: var(--ink);
   --color-ink-foreground: var(--ink-foreground);
   --color-ink-muted: var(--ink-muted);
+  --color-header: var(--header);
   --shadow-card: 0 18px 40px -22px oklch(0.3 0.03 300 / 0.35);
   --shadow-pop: 0 24px 60px -24px oklch(0.3 0.03 300 / 0.45);
 }
