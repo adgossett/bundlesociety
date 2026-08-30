@@ -9,7 +9,7 @@ import { CartPlayground } from "@/components/CartPlayground";
 import { HeroFolders } from "@/components/HeroFolders";
 
 
-import flyerImg from "@/assets/flyer-clean.png";
+
 import logoAsset from "@/assets/logo.png.asset.json";
 
 const productsQuery = queryOptions({
