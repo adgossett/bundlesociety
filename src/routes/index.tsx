@@ -96,7 +96,7 @@ function Home() {
         />
         <div className="absolute inset-0 bg-background/88" />
 
-        <div className="relative mx-auto flex min-h-[92vh] max-w-4xl flex-col items-center justify-center px-4 pb-16 pt-28 text-center sm:pt-32">
+        <div className="relative mx-auto flex min-h-[92vh] max-w-5xl flex-col items-center justify-center px-4 pb-16 pt-28 text-center sm:pt-32">
           <h1>
             <span className="sr-only">The Bundle Society</span>
             <img
