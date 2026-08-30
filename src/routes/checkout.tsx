@@ -172,9 +172,9 @@ function Field({
 }: {
   label: string;
   name: string;
-  type?: string;
-  defaultValue?: string;
-  error?: string;
+  type?: string | undefined;
+  defaultValue?: string | undefined;
+  error?: string | undefined;
 }) {
   return (
     <div>

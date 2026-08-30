@@ -41,7 +41,7 @@ function ProductDetail() {
   const { data } = useSuspenseQuery(productQuery(slug));
   const product = data as Product;
   const { add } = useCart();
-  const [length, setLength] = useState(product.lengths[0]);
+  const [length, setLength] = useState(product.lengths[0] ?? 14);
   const [quantity, setQuantity] = useState(1);
 
   function addToCart() {

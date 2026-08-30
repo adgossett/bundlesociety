@@ -9,7 +9,7 @@ const productsQuery = queryOptions({
   queryFn: () => listProducts(),
 });
 
-type ShopSearch = { texture?: string; length?: number };
+type ShopSearch = { texture?: string | undefined; length?: number | undefined };
 
 export const Route = createFileRoute("/shop/")({
   validateSearch: (search: Record<string, unknown>): ShopSearch => ({

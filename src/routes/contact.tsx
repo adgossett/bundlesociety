@@ -121,8 +121,8 @@ function Field({
 }: {
   label: string;
   name: string;
-  type?: string;
-  error?: string;
+  type?: string | undefined;
+  error?: string | undefined;
 }) {
   return (
     <div>
