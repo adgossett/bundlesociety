@@ -9,7 +9,7 @@ import { CartPlayground } from "@/components/CartPlayground";
 import { HeroFolders } from "@/components/HeroFolders";
 
 
-import flyerImg from "@/assets/flyer-clean.png";
+
 import logoAsset from "@/assets/logo.png.asset.json";
 
 const productsQuery = queryOptions({
@@ -86,72 +86,63 @@ function Home() {
 
   return (
     <div className="w-full">
-      {/* HERO — Google-style search scene with interactive folder artwork */}
+      {/* HERO — Google-style search scene; artwork with interactive folders lives in the hero itself */}
       <section className="relative isolate overflow-hidden">
-        <img
-          src={flyerImg}
-          alt=""
-          aria-hidden
-          className="absolute inset-0 size-full object-cover object-[center_28%] opacity-20"
-        />
-        <div className="absolute inset-0 bg-background/80" />
+        <HeroFolders />
 
-        <div className="relative mx-auto grid min-h-[92vh] max-w-6xl items-center gap-10 px-4 pb-16 pt-28 sm:pt-32 lg:grid-cols-[1.1fr_0.9fr] lg:gap-14">
-          <div className="flex flex-col items-center text-center lg:items-start lg:text-left">
-            <h1>
-              <span className="sr-only">The Bundle Society</span>
-              <img
-                src={logoAsset.url}
-                alt=""
-                aria-hidden
-                className="mx-auto w-72 drop-shadow-sm sm:w-[24rem] lg:mx-0"
-                width={1096}
-                height={643}
-              />
-            </h1>
-            <p className="mt-4 max-w-md text-base text-muted-foreground sm:text-lg">
-              Premium human hair bundles — soft, full and long-lasting.
-            </p>
+        <div className="relative mx-auto flex min-h-[92vh] max-w-5xl flex-col items-center justify-center px-4 pb-16 pt-28 text-center sm:pt-32">
+          <h1>
+            <span className="sr-only">The Bundle Society</span>
+            <img
+              src={logoAsset.url}
+              alt=""
+              aria-hidden
+              className="mx-auto w-72 drop-shadow-sm sm:w-[26rem] lg:w-[30rem]"
+              width={1096}
+              height={643}
+            />
+          </h1>
+          <p className="mt-4 max-w-md text-base text-muted-foreground sm:text-lg">
+            Premium human hair bundles — soft, full and long-lasting.
+          </p>
 
-            <div className="mt-10 w-full">
-              <SearchTypewriter
-                suggestions={["straight bundles", "body wave sets", "custom orders"]}
-              />
-            </div>
-
-            <div className="mt-8 flex flex-wrap justify-center gap-3 lg:justify-start">
-              <Link
-                to="/shop"
-                className="rounded-full bg-primary px-7 py-3.5 font-display text-base font-semibold text-primary-foreground shadow-card transition-transform hover:-translate-y-0.5"
-              >
-                Shop bundles
-              </Link>
-              <Link
-                to="/contact"
-                className="rounded-full bg-pink-soft px-7 py-3.5 font-display text-base font-semibold text-accent-foreground shadow-card transition-transform hover:-translate-y-0.5"
-              >
-                Custom order
-              </Link>
-            </div>
-
-            <ul className="mt-10 flex flex-wrap justify-center gap-x-6 gap-y-2 text-sm text-muted-foreground lg:justify-start">
-              {heroPoints.map((point) => (
-                <li key={point} className="flex items-center gap-2">
-                  <span className="size-1.5 rounded-full bg-primary" />
-                  {point}
-                </li>
-              ))}
-            </ul>
-
-            <div className="mt-12 flex w-full items-center justify-between border-t border-foreground/15 pt-5 text-sm text-muted-foreground">
-              <p>Starting at {formatPrice(Number.isFinite(lowest) ? lowest : 20000)}</p>
-              <p className="flex items-center gap-2">
-                Scroll to explore <ArrowDown className="size-4 animate-bounce" />
-              </p>
-            </div>
+          <div className="mt-10 w-full">
+            <SearchTypewriter
+              suggestions={["straight bundles", "body wave sets", "custom orders"]}
+            />
           </div>
 
-          <HeroFolders />
+          <div className="mt-8 flex flex-wrap justify-center gap-3">
+            <Link
+              to="/shop"
+              className="rounded-full bg-primary px-7 py-3.5 font-display text-base font-semibold text-primary-foreground shadow-card transition-transform hover:-translate-y-0.5"
+            >
+              Shop bundles
+            </Link>
+            <Link
+              to="/contact"
+              className="rounded-full bg-pink-soft px-7 py-3.5 font-display text-base font-semibold text-accent-foreground shadow-card transition-transform hover:-translate-y-0.5"
+            >
+              Custom order
+            </Link>
+          </div>
+
+          <ul className="mt-10 flex flex-wrap justify-center gap-x-6 gap-y-2 text-sm text-muted-foreground">
+            {heroPoints.map((point) => (
+              <li key={point} className="flex items-center gap-2">
+                <span className="size-1.5 rounded-full bg-primary" />
+                {point}
+              </li>
+            ))}
+          </ul>
+
+          <div className="mt-14 flex w-full items-center justify-between border-t border-foreground/15 pt-5 text-sm text-muted-foreground">
+            <p>Starting at {formatPrice(Number.isFinite(lowest) ? lowest : 20000)}</p>
+            <p className="flex items-center gap-2">
+              Scroll to explore <ArrowDown className="size-4 animate-bounce" />
+            </p>
+          </div>
+
         </div>
       </section>
 
