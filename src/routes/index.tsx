@@ -83,56 +83,57 @@ function Home() {
 
   return (
     <div className="w-full">
-      {/* HERO */}
-      <section className="relative isolate overflow-hidden bg-ink text-ink-foreground">
+      {/* HERO — Google-style search scene on light background */}
+      <section className="relative isolate overflow-hidden">
         <img
           src={flyerAsset.url}
           alt=""
           aria-hidden
-          className="absolute inset-0 size-full object-cover object-[center_28%] opacity-60"
+          className="absolute inset-0 size-full object-cover object-[center_28%]"
         />
-        <div className="absolute inset-0 bg-gradient-to-r from-ink via-ink/85 to-ink/25" />
+        <div className="absolute inset-0 bg-background/88" />
 
-        <div className="relative mx-auto flex min-h-[86vh] max-w-6xl flex-col justify-end px-4 pb-10 pt-28 sm:pt-36">
-          <div className="max-w-2xl">
-            <p className="flex items-center gap-3 text-sm font-semibold uppercase tracking-[0.28em] text-primary">
-              <ArrowRight className="size-4" /> Premium human hair
-            </p>
-            <h1 className="mt-6 font-display text-5xl font-semibold leading-[0.95] tracking-tight sm:text-7xl lg:text-8xl">
-              Bundles that
-              <br />
-              carry the <span className="text-pink-deep">whole</span> look.
-            </h1>
-            <ul className="mt-8 space-y-2.5">
-              {heroPoints.map((point) => (
-                <li key={point} className="flex items-center gap-3 text-base text-ink-muted sm:text-lg">
-                  <span className="size-1.5 rounded-full bg-primary" />
-                  {point}
-                </li>
-              ))}
-            </ul>
+        <div className="relative mx-auto flex min-h-[92vh] max-w-4xl flex-col items-center justify-center px-4 pb-16 pt-28 text-center sm:pt-32">
+          <h1 className="font-display text-6xl font-semibold leading-none tracking-tight sm:text-8xl lg:text-9xl">
+            <span className="text-pink-deep">The</span>{" "}
+            <span className="text-foreground">Bundle</span>{" "}
+            <span className="text-primary">Society</span>
+          </h1>
+          <p className="mt-4 max-w-md text-base text-muted-foreground sm:text-lg">
+            Premium human hair bundles — soft, full and long-lasting.
+          </p>
 
-            <div className="mt-9 max-w-xl">
-              <SearchTypewriter />
-            </div>
-
-            <div className="mt-7 flex flex-wrap gap-3">
-              <Link
-                to="/shop"
-                className="rounded-full bg-primary px-7 py-3.5 font-display text-base font-semibold text-primary-foreground transition-transform hover:-translate-y-0.5"
-              >
-                Shop bundles
-              </Link>
-              <Link
-                to="/contact"
-                className="rounded-full bg-ink-foreground/10 px-7 py-3.5 font-display text-base font-semibold text-ink-foreground ring-1 ring-ink-foreground/25 transition-colors hover:bg-ink-foreground/20"
-              >
-                Custom order
-              </Link>
-            </div>
+          <div className="mt-10 w-full">
+            <SearchTypewriter
+              suggestions={["straight bundles", "body wave sets", "custom orders"]}
+            />
           </div>
 
-          <div className="mt-14 flex items-center justify-between border-t border-ink-foreground/15 pt-5 text-sm text-ink-muted">
+          <div className="mt-8 flex flex-wrap justify-center gap-3">
+            <Link
+              to="/shop"
+              className="rounded-full bg-primary px-7 py-3.5 font-display text-base font-semibold text-primary-foreground shadow-card transition-transform hover:-translate-y-0.5"
+            >
+              Shop bundles
+            </Link>
+            <Link
+              to="/contact"
+              className="rounded-full bg-pink-soft px-7 py-3.5 font-display text-base font-semibold text-accent-foreground shadow-card transition-transform hover:-translate-y-0.5"
+            >
+              Custom order
+            </Link>
+          </div>
+
+          <ul className="mt-10 flex flex-wrap justify-center gap-x-6 gap-y-2 text-sm text-muted-foreground">
+            {heroPoints.map((point) => (
+              <li key={point} className="flex items-center gap-2">
+                <span className="size-1.5 rounded-full bg-primary" />
+                {point}
+              </li>
+            ))}
+          </ul>
+
+          <div className="mt-14 flex w-full items-center justify-between border-t border-foreground/15 pt-5 text-sm text-muted-foreground">
             <p>Starting at {formatPrice(Number.isFinite(lowest) ? lowest : 20000)}</p>
             <p className="flex items-center gap-2">
               Scroll to explore <ArrowDown className="size-4 animate-bounce" />
