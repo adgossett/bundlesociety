@@ -19,21 +19,21 @@ const folders: FolderDef[] = [
     label: "Bundles",
     productImg: bundlesAsset.url,
     accent: "bg-pink-soft",
-    box: { left: "70%", top: "-2%", width: "21.5%", height: "11.5%" },
+    box: { left: "64%", top: "-2%", width: "21.5%", height: "11.5%" },
   },
   {
     id: "lashes",
     label: "Lashes",
     productImg: lashesAsset.url,
     accent: "bg-primary",
-    box: { left: "70%", top: "10%", width: "21.5%", height: "11.5%" },
+    box: { left: "64%", top: "10%", width: "21.5%", height: "11.5%" },
   },
   {
     id: "lipgloss",
     label: "Lip Gloss",
     productImg: lipglossAsset.url,
     accent: "bg-pink-soft",
-    box: { left: "70%", top: "22%", width: "21.5%", height: "11.5%" },
+    box: { left: "64%", top: "22%", width: "21.5%", height: "11.5%" },
   },
 ];
 
@@ -50,7 +50,7 @@ export function HeroFolders() {
   return (
     <div
       aria-label="Product folders"
-      className="pointer-events-none absolute -top-[2%] right-[2%] hidden aspect-[928/1152] w-[min(50vw,38rem)] select-none md:block lg:right-[6%] xl:right-[10%]"
+      className="pointer-events-none absolute -top-[2%] right-0 hidden aspect-[928/1152] w-[min(50vw,38rem)] select-none md:block lg:right-[2%] xl:right-[6%]"
     >
       <img
         src={flyerEmpty}
