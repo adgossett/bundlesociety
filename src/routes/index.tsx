@@ -6,6 +6,8 @@ import { formatPrice, type Product } from "@/lib/shop";
 import { ProductCard } from "@/components/ProductCard";
 import { SearchTypewriter } from "@/components/SearchTypewriter";
 import { CartPlayground } from "@/components/CartPlayground";
+import { FolderShelf } from "@/components/FolderShelf";
+
 
 import flyerAsset from "@/assets/flyer-clean.png.asset.json";
 import logoAsset from "@/assets/logo.png.asset.json";
@@ -94,7 +96,7 @@ function Home() {
         />
         <div className="absolute inset-0 bg-background/88" />
 
-        <div className="relative mx-auto flex min-h-[92vh] max-w-4xl flex-col items-center justify-center px-4 pb-16 pt-28 text-center sm:pt-32">
+        <div className="relative mx-auto flex min-h-[92vh] max-w-5xl flex-col items-center justify-center px-4 pb-16 pt-28 text-center sm:pt-32">
           <h1>
             <span className="sr-only">The Bundle Society</span>
             <img
@@ -140,12 +142,17 @@ function Home() {
             ))}
           </ul>
 
+          <div className="mt-14 w-full">
+            <FolderShelf />
+          </div>
+
           <div className="mt-14 flex w-full items-center justify-between border-t border-foreground/15 pt-5 text-sm text-muted-foreground">
             <p>Starting at {formatPrice(Number.isFinite(lowest) ? lowest : 20000)}</p>
             <p className="flex items-center gap-2">
               Scroll to explore <ArrowDown className="size-4 animate-bounce" />
             </p>
           </div>
+
         </div>
       </section>
 
