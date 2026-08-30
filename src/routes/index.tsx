@@ -6,6 +6,8 @@ import { formatPrice, type Product } from "@/lib/shop";
 import { ProductCard } from "@/components/ProductCard";
 import { SearchTypewriter } from "@/components/SearchTypewriter";
 import { CartPlayground } from "@/components/CartPlayground";
+import { FolderShelf } from "@/components/FolderShelf";
+
 
 import flyerAsset from "@/assets/flyer-clean.png.asset.json";
 import logoAsset from "@/assets/logo.png.asset.json";
