@@ -6,6 +6,11 @@ import { useCart } from "@/lib/cart";
 const links = [
   { to: "/", label: "Home" },
   { to: "/shop", label: "Shop" },
+  { to: "/shop", label: "Bundles" },
+  { to: "/shop", label: "Wigs" },
+  { to: "/shop", label: "Frontals" },
+  { to: "/shop", label: "Closures" },
+  { to: "/contact", label: "Custom Order" },
   { to: "/contact", label: "Contact" },
 ];
 
@@ -58,15 +63,15 @@ export function SiteHeader() {
       </div>
 
       <div className="mx-auto mt-4 flex max-w-7xl justify-center px-4">
-        <nav className="flex items-center gap-1 rounded-full bg-ink p-2 sm:gap-2 sm:px-3">
+        <nav className="scrollbar-hide flex max-w-full items-center gap-1 overflow-x-auto rounded-full bg-ink p-2 sm:gap-2 sm:px-3">
           {links.map((link) => (
             <Link
-              key={link.to}
+              key={`${link.to}-${link.label}`}
               to={link.to}
               activeOptions={{ exact: link.to === "/" }}
               activeProps={{ className: "bg-background text-ink" }}
               inactiveProps={{ className: "text-ink-foreground hover:text-primary" }}
-              className="rounded-full px-4 py-2.5 text-xs font-extrabold uppercase tracking-wide transition-colors sm:px-6 sm:text-sm"
+              className="shrink-0 rounded-full px-4 py-2.5 text-xs font-extrabold uppercase tracking-wide transition-colors sm:px-6 sm:text-sm"
             >
               {link.label}
             </Link>

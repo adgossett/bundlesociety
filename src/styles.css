@@ -79,6 +79,14 @@
   animation: tbs-marquee 40s linear infinite;
 }
 
+@utility scrollbar-hide {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+.scrollbar-hide::-webkit-scrollbar {
+  display: none;
+}
+
 
 :root {
   --radius: 1.5rem;
