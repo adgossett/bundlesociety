@@ -43,7 +43,9 @@ const folders: FolderDef[] = [
  * hot-spots: hover/click lights a folder up and its product pops out.
  */
 export function HeroFolders() {
-  const [active, setActive] = useState<string | null>(null);
+  const [hovered, setHovered] = useState<string | null>(null);
+  const [pinned, setPinned] = useState<string | null>(null);
+  const active = hovered ?? pinned;
 
   return (
     <div
