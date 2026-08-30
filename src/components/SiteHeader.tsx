@@ -28,7 +28,7 @@ export function SiteHeader() {
   const [open, setOpen] = useState(false);
 
   return (
-    <header className="sticky top-0 z-40 bg-header pb-4 pt-4 shadow-sm sm:pb-6 sm:pt-6">
+    <header className="sticky top-0 z-40 bg-background pb-4 pt-4 shadow-sm sm:pb-6 sm:pt-6">
       <div className="relative mx-auto flex max-w-7xl items-center justify-center px-4 sm:px-8">
         {/* Mobile hamburger */}
         <div className="absolute left-4 top-1/2 -translate-y-1/2 md:hidden">
@@ -36,12 +36,12 @@ export function SiteHeader() {
             <SheetTrigger asChild>
               <button
                 aria-label="Open menu"
-                className="grid size-10 place-items-center rounded-full border border-foreground/20 text-foreground transition-colors hover:bg-white/30"
+                className="grid size-10 place-items-center rounded-full border border-foreground/20 text-foreground transition-colors hover:bg-foreground/10"
               >
                 <Menu className="size-5" />
               </button>
             </SheetTrigger>
-            <SheetContent side="left" className="bg-header pb-8 pt-6">
+            <SheetContent side="left" className="bg-background pb-8 pt-6">
               <SheetHeader className="mb-4">
                 <SheetTitle className="sr-only">Navigation menu</SheetTitle>
               </SheetHeader>
@@ -52,7 +52,7 @@ export function SiteHeader() {
                       to={link.to}
                       activeOptions={{ exact: link.to === "/" }}
                       activeProps={{ className: "bg-primary text-primary-foreground" }}
-                      inactiveProps={{ className: "text-foreground hover:bg-white/40" }}
+                      inactiveProps={{ className: "text-foreground hover:bg-foreground/10" }}
                       className="w-full max-w-xs rounded-full px-6 py-3 text-center text-sm font-extrabold uppercase tracking-wide transition-colors"
                     >
                       {link.label}
@@ -78,7 +78,7 @@ export function SiteHeader() {
         <Link
           to="/shop"
           aria-label="Search bundles"
-          className="absolute left-4 top-1/2 hidden size-11 -translate-y-1/2 place-items-center rounded-full border border-foreground/20 text-foreground transition-colors hover:bg-white/30 md:grid"
+          className="absolute left-4 top-1/2 hidden size-11 -translate-y-1/2 place-items-center rounded-full border border-foreground/20 text-foreground transition-colors hover:bg-foreground/10 md:grid"
         >
           <Search className="size-4" />
         </Link>
@@ -90,21 +90,21 @@ export function SiteHeader() {
           <Link
             to="/shop"
             aria-label="Search bundles"
-            className="grid size-10 place-items-center rounded-full border border-foreground/20 text-foreground transition-colors hover:bg-white/30 sm:size-11 md:hidden"
+            className="grid size-10 place-items-center rounded-full border border-foreground/20 text-foreground transition-colors hover:bg-foreground/10 sm:size-11 md:hidden"
           >
             <Search className="size-4" />
           </Link>
           <Link
             to="/contact"
             aria-label="Account"
-            className="grid size-10 place-items-center rounded-full border border-foreground/20 text-foreground transition-colors hover:bg-white/30 sm:size-11"
+            className="grid size-10 place-items-center rounded-full border border-foreground/20 text-foreground transition-colors hover:bg-foreground/10 sm:size-11"
           >
             <User className="size-4" />
           </Link>
           <Link
             to="/cart"
             aria-label="Cart"
-            className="relative grid size-10 place-items-center rounded-full border border-foreground/20 text-foreground transition-colors hover:bg-white/30 sm:size-11"
+            className="relative grid size-10 place-items-center rounded-full border border-foreground/20 text-foreground transition-colors hover:bg-foreground/10 sm:size-11"
           >
             <ShoppingBag className="size-4" />
             {count > 0 && (
@@ -118,14 +118,14 @@ export function SiteHeader() {
 
       {/* Desktop pill nav */}
       <div className="mx-auto mt-4 hidden max-w-7xl justify-center px-4 md:flex">
-        <nav className="scrollbar-hide flex max-w-full items-center gap-1 overflow-x-auto rounded-full bg-foreground p-2 shadow-card sm:gap-2 sm:px-3">
+        <nav className="scrollbar-hide flex max-w-full items-center gap-1 overflow-x-auto rounded-full border border-border bg-background p-2 shadow-card sm:gap-2 sm:px-3">
           {links.map((link) => (
             <Link
               key={`${link.to}-${link.label}`}
               to={link.to}
               activeOptions={{ exact: link.to === "/" }}
               activeProps={{ className: "bg-primary text-primary-foreground" }}
-              inactiveProps={{ className: "text-background hover:text-primary" }}
+              inactiveProps={{ className: "text-foreground hover:bg-primary/10 hover:text-primary" }}
               className="shrink-0 rounded-full px-4 py-2.5 text-xs font-extrabold uppercase tracking-wide transition-colors sm:px-6 sm:text-sm"
             >
               {link.label}
