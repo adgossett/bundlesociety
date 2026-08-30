@@ -6,7 +6,6 @@ import { formatPrice, type Product } from "@/lib/shop";
 import { ProductCard } from "@/components/ProductCard";
 import { SearchTypewriter } from "@/components/SearchTypewriter";
 import { CartPlayground } from "@/components/CartPlayground";
-import { FolderShelf } from "@/components/FolderShelf";
 
 
 import flyerAsset from "@/assets/flyer-clean.png.asset.json";
@@ -141,10 +140,6 @@ function Home() {
               </li>
             ))}
           </ul>
-
-          <div className="mt-14 w-full">
-            <FolderShelf />
-          </div>
 
           <div className="mt-14 flex w-full items-center justify-between border-t border-foreground/15 pt-5 text-sm text-muted-foreground">
             <p>Starting at {formatPrice(Number.isFinite(lowest) ? lowest : 20000)}</p>
