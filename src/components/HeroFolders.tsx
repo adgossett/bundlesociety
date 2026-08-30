@@ -69,8 +69,9 @@ export function HeroFolders() {
             type="button"
             aria-pressed={isActive}
             aria-label={`${folder.label} folder — tap to reveal`}
-            onClick={() => setActive(isActive ? null : folder.id)}
-            onMouseEnter={() => setActive(folder.id)}
+            onClick={() => setPinned(pinned === folder.id ? null : folder.id)}
+            onMouseEnter={() => setHovered(folder.id)}
+            onMouseLeave={() => setHovered(null)}
             className="group pointer-events-auto absolute cursor-pointer rounded-xl outline-none transition-all duration-300 focus-visible:ring-4 focus-visible:ring-primary/60"
             style={folder.box}
           >
