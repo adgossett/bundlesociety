@@ -2,9 +2,10 @@ import { useState } from "react";
 import { Link } from "@tanstack/react-router";
 import { toast } from "sonner";
 import { MousePointerClick, PackageCheck, Truck } from "lucide-react";
-import basketImg from "@/assets/basket.png";
+import basketFullImg from "@/assets/basket.png";
+import basketEmptyImg from "@/assets/basket-empty.png";
 import { useCart } from "@/lib/cart";
-import { formatPrice, imageFor, type Product } from "@/lib/shop";
+import { formatPrice, type Product } from "@/lib/shop";
 
 const STEPS = [
   {
@@ -25,7 +26,7 @@ const STEPS = [
 ];
 
 export function CartPlayground({ products }: { products: Product[] }) {
-  const { add, lines, count, subtotal } = useCart();
+  const { add, count, subtotal } = useCart();
   const [bump, setBump] = useState(0);
 
   const textures = ["Straight", "Body Wave", "Deep Wave"];
@@ -86,27 +87,14 @@ export function CartPlayground({ products }: { products: Product[] }) {
           className="relative mt-6 block w-full rounded-3xl bg-muted p-4 text-left transition-transform hover:-translate-y-0.5"
         >
           <img
-            src={basketImg}
-            alt="Empty shopping basket"
+            key={bump}
+            src={count === 0 ? basketEmptyImg : basketFullImg}
+            alt={count === 0 ? "Empty wire shopping cart with pink handle" : "Shopping cart filled with bundle boxes"}
             loading="lazy"
             width={1024}
             height={768}
-            className="mx-auto w-full max-w-sm"
+            className="mx-auto w-full max-w-sm animate-in zoom-in-95 duration-300"
           />
-          <div
-            key={bump}
-            className="pointer-events-none absolute inset-x-0 bottom-[22%] mx-auto flex max-w-[60%] flex-wrap items-end justify-center gap-1"
-          >
-            {lines.slice(0, 6).map((line) => (
-              <img
-                key={`${line.productId}-${line.length}`}
-                src={imageFor(line.imageKey)}
-                alt=""
-                aria-hidden
-                className="size-12 rounded-lg object-cover shadow-card"
-              />
-            ))}
-          </div>
           {count === 0 && (
             <p className="mt-2 text-center text-sm text-muted-foreground">
               Your basket is empty — tap to add a bundle.
