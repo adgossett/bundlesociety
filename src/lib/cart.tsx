@@ -46,10 +46,12 @@ export function CartProvider({ children }: { children: ReactNode }) {
   const add = useCallback((line: CartLine) => {
     setLines((prev) => {
       const idx = prev.findIndex((l) => l.productId === line.productId && l.length === line.length);
-      if (idx === -1) return [...prev, line];
+      const existing = prev[idx];
+      if (idx === -1 || !existing) return [...prev, line];
       const next = [...prev];
-      next[idx] = { ...next[idx], quantity: Math.min(20, next[idx].quantity + line.quantity) };
+      next[idx] = { ...existing, quantity: Math.min(20, existing.quantity + line.quantity) };
       return next;
+
     });
   }, []);
 
