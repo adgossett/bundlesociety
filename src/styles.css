@@ -77,7 +77,7 @@
 }
 
 @utility animate-marquee {
-  animation: tbs-marquee 40s linear infinite;
+  animation: tbs-marquee 15s linear infinite;
 }
 
 @utility scrollbar-hide {
