@@ -8,6 +8,7 @@ import { SearchTypewriter } from "@/components/SearchTypewriter";
 import { CartPlayground } from "@/components/CartPlayground";
 import { HeroFolders } from "@/components/HeroFolders";
 import { CollectionShowcase } from "@/components/CollectionShowcase";
+import { CountUp } from "@/components/CountUp";
 
 
 
