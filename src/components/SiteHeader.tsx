@@ -28,8 +28,22 @@ export function SiteHeader() {
   const [open, setOpen] = useState(false);
 
   return (
-    <header className="sticky top-0 z-40 bg-background pb-4 pt-4 shadow-navbar-glow sm:pb-6 sm:pt-6">
-      <div className="relative mx-auto flex max-w-7xl items-center justify-center px-4 sm:px-8">
+    <header className="sticky top-0 z-40 bg-background pb-4 pt-0 shadow-navbar-glow sm:pb-6">
+      {/* Announcement banner */}
+      <div className="w-full bg-primary py-2.5 text-center">
+        <p className="inline-flex items-center gap-1.5 text-xs font-extrabold uppercase tracking-[0.18em] text-ink">
+          <span>Free shipping on orders above</span>
+          <span className="relative inline-flex items-center justify-center px-1">
+            <Heart
+              className="absolute -inset-x-1 -inset-y-1 size-6 fill-pink-deep text-pink-deep"
+              aria-hidden
+            />
+            <span className="relative z-10 text-ink">$100</span>
+          </span>
+        </p>
+      </div>
+
+      <div className="relative mx-auto flex max-w-7xl items-center justify-center px-4 pt-4 sm:px-8">
         {/* Mobile hamburger */}
         <div className="absolute left-4 top-1/2 -translate-y-1/2 md:hidden">
           <Sheet open={open} onOpenChange={setOpen}>
