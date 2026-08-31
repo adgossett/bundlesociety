@@ -263,70 +263,22 @@ function Home() {
         </div>
       </section>
 
-      {/* SOCIAL — dark band with torn-page bottom edge */}
-      <section className="relative overflow-hidden bg-foreground text-background">
-        <div className="flex w-max animate-marquee gap-8 border-b border-background/15 py-2 text-[0.65rem] font-bold uppercase tracking-[0.4em] text-pink-deep">
-          {Array.from({ length: 10 }).map((_, i) => (
-            <span key={i}>Follow us</span>
-          ))}
-        </div>
-        <div className="mx-auto grid max-w-6xl items-center gap-10 px-4 py-16 pb-28 sm:py-20 sm:pb-32 md:grid-cols-2">
-          <div className="relative mx-auto w-full max-w-sm">
-            {/* corner stickers */}
-            <div className="absolute -left-4 -top-4 z-10 rotate-[-12deg] border-2 border-pink-soft bg-foreground p-2 shadow-card">
-              <Heart className="size-4 fill-pink-soft text-pink-soft" />
-            </div>
-            <div className="absolute -bottom-4 -right-4 z-10 rotate-[10deg] border-2 border-pink-soft bg-foreground p-2 shadow-card">
-              <Heart className="size-4 fill-pink-soft text-pink-soft" />
-            </div>
-            {/* pink polaroid-style frame with cropped inset photo */}
-            <div className="rotate-[-2deg] bg-pink-soft p-5 pb-16 shadow-card sm:p-6 sm:pb-20">
-              <img
-                src={socialImage.url}
-                alt="Bundle Society hair bundles"
-                className="aspect-[4/5] w-full border-2 border-foreground/10 object-cover object-top"
-                loading="lazy"
-              />
-            </div>
-          </div>
-          <div className="text-center md:text-left">
-            <div className="relative inline-block">
-              <p className="font-script relative z-10 -mb-4 -rotate-3 text-4xl text-white sm:-mb-6 sm:text-5xl">
-                Let's get social on
-              </p>
-              <h2 className="font-condensed text-[5.5rem] uppercase leading-[0.85] tracking-wide text-pink-deep sm:text-[8.5rem]">
-                Instagram
-              </h2>
-            </div>
-            <a
-              href="https://instagram.com"
-              target="_blank"
-              rel="noreferrer"
-              className="mt-7 inline-flex items-center gap-2 rounded-full border-2 border-background/40 px-7 py-3.5 font-display text-sm font-semibold uppercase tracking-[0.15em] transition-colors hover:border-primary hover:text-primary"
-            >
-              <Instagram className="size-4" /> @thebundlesociety
-            </a>
-          </div>
-        </div>
-        {/* torn paper edge */}
-        <svg
-          aria-hidden="true"
-          className="absolute bottom-0 left-0 h-10 w-full text-background sm:h-14"
-          viewBox="0 0 1200 48"
-          preserveAspectRatio="none"
+      {/* SOCIAL — Instagram banner */}
+      <section className="relative">
+        <a
+          href="https://instagram.com"
+          target="_blank"
+          rel="noreferrer"
+          aria-label="Follow The Bundle Society on Instagram"
+          className="block"
         >
-          {/* soft shadow strip behind the tear */}
-          <path
-            fill="currentColor"
-            opacity="0.35"
-            transform="translate(0,-6)"
-            d="M0,48 L0,26 L11,18 L27,11 L41,13 L56,15 L65,11 L77,23 L86,15 L98,17 L113,12 L129,35 L135,31 L147,12 L153,33 L161,22 L169,27 L184,23 L200,15 L215,32 L224,19 L238,31 L253,15 L262,28 L276,29 L287,27 L300,21 L309,36 L318,15 L328,30 L339,34 L349,27 L356,30 L364,37 L372,26 L378,31 L392,33 L403,24 L414,30 L429,38 L436,35 L446,28 L462,11 L472,35 L488,38 L498,34 L514,19 L527,20 L542,14 L548,21 L558,20 L567,26 L580,12 L593,27 L603,21 L615,39 L625,34 L636,34 L645,15 L653,16 L669,15 L682,39 L690,21 L696,18 L710,23 L725,20 L739,32 L755,31 L768,41 L784,39 L796,26 L808,14 L824,23 L833,12 L846,15 L857,27 L864,15 L872,27 L883,27 L890,36 L905,24 L921,21 L936,22 L943,17 L956,26 L969,19 L977,16 L988,33 L1001,40 L1009,27 L1018,29 L1026,35 L1032,39 L1042,37 L1049,37 L1059,29 L1067,25 L1076,31 L1090,24 L1099,33 L1108,36 L1120,37 L1129,19 L1142,24 L1148,17 L1158,25 L1167,35 L1178,29 L1189,19 L1198,12 L1211,17 L1200,48 Z"
+          <img
+            src={instagramBanner.url}
+            alt="Let's get social on Instagram — @thebundlesociety"
+            className="h-64 w-full object-cover sm:h-80 md:h-96 lg:h-[28rem]"
+            loading="lazy"
           />
-          <path
-            fill="currentColor"
-            d="M0,48 L0,26 L11,18 L27,11 L41,13 L56,15 L65,11 L77,23 L86,15 L98,17 L113,12 L129,35 L135,31 L147,12 L153,33 L161,22 L169,27 L184,23 L200,15 L215,32 L224,19 L238,31 L253,15 L262,28 L276,29 L287,27 L300,21 L309,36 L318,15 L328,30 L339,34 L349,27 L356,30 L364,37 L372,26 L378,31 L392,33 L403,24 L414,30 L429,38 L436,35 L446,28 L462,11 L472,35 L488,38 L498,34 L514,19 L527,20 L542,14 L548,21 L558,20 L567,26 L580,12 L593,27 L603,21 L615,39 L625,34 L636,34 L645,15 L653,16 L669,15 L682,39 L690,21 L696,18 L710,23 L725,20 L739,32 L755,31 L768,41 L784,39 L796,26 L808,14 L824,23 L833,12 L846,15 L857,27 L864,15 L872,27 L883,27 L890,36 L905,24 L921,21 L936,22 L943,17 L956,26 L969,19 L977,16 L988,33 L1001,40 L1009,27 L1018,29 L1026,35 L1032,39 L1042,37 L1049,37 L1059,29 L1067,25 L1076,31 L1090,24 L1099,33 L1108,36 L1120,37 L1129,19 L1142,24 L1148,17 L1158,25 L1167,35 L1178,29 L1189,19 L1198,12 L1211,17 L1200,48 Z"
-          />
-        </svg>
+        </a>
       </section>
 
       {/* CTA BAND */}
