@@ -51,7 +51,7 @@ export function SiteFooter() {
             <img
               src={logoAsset.url}
               alt="The Bundle Society"
-              className="w-full invert"
+              className="w-full invert hue-rotate-180"
             />
           </div>
         </div>
