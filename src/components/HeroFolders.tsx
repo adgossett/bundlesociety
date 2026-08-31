@@ -52,6 +52,23 @@ export function HeroFolders() {
       aria-label="Product folders"
       className="pointer-events-none absolute top-[10%] right-[18%] hidden aspect-[928/1152] w-[min(50vw,38rem)] select-none md:block lg:right-[26%] xl:right-[34%]"
     >
+      {/* Soft brand-color blobs filling the space behind the folders */}
+      <div
+        aria-hidden
+        className="absolute -right-[10%] top-[5%] aspect-square w-[55%] rounded-full bg-primary/25 blur-3xl"
+        style={{ filter: "blur(56px)" }}
+      />
+      <div
+        aria-hidden
+        className="absolute left-[15%] top-[28%] aspect-square w-[42%] rounded-full bg-pink-deep/20 blur-3xl"
+        style={{ filter: "blur(48px)" }}
+      />
+      <div
+        aria-hidden
+        className="absolute bottom-[18%] left-[5%] aspect-square w-[38%] rounded-full bg-primary/20 blur-3xl"
+        style={{ filter: "blur(44px)" }}
+      />
+
       <img
         src={flyerEmpty}
         alt=""
