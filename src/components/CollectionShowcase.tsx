@@ -4,6 +4,17 @@ import { ProductCard } from "@/components/ProductCard";
 import bundlesAsset from "@/assets/col-bundles.jpg.asset.json";
 import lashesAsset from "@/assets/col-lashes.jpg.asset.json";
 import lipglossAsset from "@/assets/col-lipgloss.jpg.asset.json";
+import wigBobAsset from "@/assets/prod-wig-bob.jpg.asset.json";
+import wigLongAsset from "@/assets/prod-wig-long.jpg.asset.json";
+import bundlesHandAsset from "@/assets/prod-bundles-hand.jpg.asset.json";
+import bundleBoxAsset from "@/assets/prod-bundle-box.jpg.asset.json";
+
+const gridImages = [
+  bundlesHandAsset.url,
+  wigLongAsset.url,
+  bundleBoxAsset.url,
+  wigBobAsset.url,
+];
 
 type CollectionId = "new" | "sale" | "best";
 
