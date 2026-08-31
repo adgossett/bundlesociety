@@ -16,9 +16,13 @@ export function SiteFooter() {
       <div className="mx-auto grid max-w-6xl gap-12 px-4 py-16 sm:grid-cols-2 lg:grid-cols-3">
         {/* Brand blurb + newsletter */}
         <div>
-          <h3 className="font-display text-xs font-semibold uppercase tracking-[0.3em] text-pink-deep">
-            Bundle Society
-          </h3>
+          <Link to="/" aria-label="The Bundle Society home">
+            <img
+              src={logoAsset.url}
+              alt="The Bundle Society"
+              className="h-16 w-auto"
+            />
+          </Link>
           <p className="mt-4 max-w-xs text-sm leading-relaxed text-muted-foreground">
             Premium hair bundles made to keep you flawless. Soft, full and
             long-lasting sets in every texture, with custom orders welcome.
@@ -45,15 +49,15 @@ export function SiteFooter() {
           </form>
         </div>
 
-        {/* Circular logo badge */}
+        {/* Logo accent */}
         <div className="flex items-start justify-center">
-          <div className="flex size-44 items-center justify-center rounded-full bg-foreground p-6">
+          <Link to="/" aria-label="The Bundle Society home" className="block">
             <img
               src={logoAsset.url}
               alt="The Bundle Society"
-              className="w-full invert hue-rotate-180"
+              className="h-28 w-auto opacity-90"
             />
-          </div>
+          </Link>
         </div>
 
         {/* Links */}
