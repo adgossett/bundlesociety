@@ -33,13 +33,8 @@ export function SiteHeader() {
       <div className="w-full bg-primary py-2.5 text-center">
         <p className="inline-flex items-center gap-1.5 text-xs font-extrabold uppercase tracking-[0.18em] text-ink">
           <span>Free shipping on orders above</span>
-          <span className="relative inline-flex items-center justify-center px-1">
-            <Heart
-              className="absolute -inset-x-1 -inset-y-1 size-6 fill-pink-deep text-pink-deep"
-              aria-hidden
-            />
-            <span className="relative z-10 text-ink">$100</span>
-          </span>
+          <span className="text-ink">$100</span>
+          <Heart className="size-4 fill-pink-deep text-pink-deep" aria-hidden />
         </p>
       </div>
 
