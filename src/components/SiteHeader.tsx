@@ -28,7 +28,7 @@ export function SiteHeader() {
   const [open, setOpen] = useState(false);
 
   return (
-    <header className="sticky top-0 z-40 bg-background pb-4 pt-4 shadow-sm sm:pb-6 sm:pt-6">
+    <header className="sticky top-0 z-40 bg-background pb-4 pt-4 shadow-navbar-glow sm:pb-6 sm:pt-6">
       <div className="relative mx-auto flex max-w-7xl items-center justify-center px-4 sm:px-8">
         {/* Mobile hamburger */}
         <div className="absolute left-4 top-1/2 -translate-y-1/2 md:hidden">
