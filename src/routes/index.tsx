@@ -262,24 +262,24 @@ function Home() {
         </div>
       </section>
 
-      {/* SOCIAL */}
-      <section className="overflow-hidden border-b border-border/60 bg-card">
-        <div className="flex w-max animate-marquee gap-8 border-b border-border/60 py-2 text-[0.65rem] font-bold uppercase tracking-[0.4em] text-pink-deep">
+      {/* SOCIAL — dark band with torn-page bottom edge */}
+      <section className="relative overflow-hidden bg-foreground text-background">
+        <div className="flex w-max animate-marquee gap-8 border-b border-background/15 py-2 text-[0.65rem] font-bold uppercase tracking-[0.4em] text-pink-deep">
           {Array.from({ length: 10 }).map((_, i) => (
             <span key={i}>Follow us</span>
           ))}
         </div>
-        <div className="mx-auto grid max-w-6xl items-center gap-10 px-4 py-16 sm:py-20 md:grid-cols-2">
-          <div className="mx-auto w-full max-w-sm rounded-2xl border border-border bg-background p-4 shadow-card">
+        <div className="mx-auto grid max-w-6xl items-center gap-10 px-4 py-16 pb-28 sm:py-20 sm:pb-32 md:grid-cols-2">
+          <div className="mx-auto w-full max-w-sm rotate-[-2deg] border-2 border-background/20 bg-pink-soft p-4 shadow-card">
             <img
               src={socialImage.url}
               alt="Bundle Society hair bundles"
-              className="aspect-[4/5] w-full rounded-xl object-cover"
+              className="aspect-[4/5] w-full object-cover"
               loading="lazy"
             />
           </div>
           <div className="text-center md:text-left">
-            <p className="font-display text-2xl italic text-pink-deep">Let's get social on</p>
+            <p className="font-display text-2xl italic text-background/80">Let's get social on</p>
             <h2 className="mt-1 font-display text-5xl font-semibold uppercase leading-[0.9] tracking-tight text-pink-deep sm:text-7xl">
               Instagram
             </h2>
@@ -287,12 +287,24 @@ function Home() {
               href="https://instagram.com"
               target="_blank"
               rel="noreferrer"
-              className="mt-7 inline-flex items-center gap-2 rounded-full border border-foreground/20 bg-background px-7 py-3.5 font-display text-sm font-semibold uppercase tracking-[0.15em] transition-colors hover:border-primary hover:text-primary"
+              className="mt-7 inline-flex items-center gap-2 rounded-full border border-background/30 px-7 py-3.5 font-display text-sm font-semibold uppercase tracking-[0.15em] transition-colors hover:border-primary hover:text-primary"
             >
               <Instagram className="size-4" /> @thebundlesociety
             </a>
           </div>
         </div>
+        {/* torn paper edge */}
+        <svg
+          aria-hidden="true"
+          className="absolute bottom-0 left-0 h-8 w-full text-background sm:h-12"
+          viewBox="0 0 1200 48"
+          preserveAspectRatio="none"
+        >
+          <path
+            fill="currentColor"
+            d="M0,48 L0,30 L18,36 L35,22 L52,34 L70,18 L88,32 L105,24 L124,38 L142,20 L160,34 L178,26 L196,40 L215,22 L233,36 L250,24 L268,38 L287,20 L305,34 L322,26 L341,40 L360,18 L378,34 L396,24 L414,38 L433,22 L451,36 L470,26 L488,40 L507,20 L525,34 L543,24 L562,38 L580,22 L599,36 L617,26 L636,40 L655,20 L673,34 L691,24 L710,38 L728,22 L747,36 L765,26 L784,40 L802,20 L821,34 L839,24 L858,38 L876,22 L895,36 L913,26 L932,40 L950,20 L969,34 L987,24 L1006,38 L1024,22 L1043,36 L1061,26 L1080,40 L1098,20 L1117,34 L1135,24 L1154,38 L1172,22 L1190,34 L1200,28 L1200,48 Z"
+          />
+        </svg>
       </section>
 
       {/* CTA BAND */}
