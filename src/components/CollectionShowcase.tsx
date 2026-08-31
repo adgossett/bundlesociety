@@ -53,6 +53,12 @@ const collections: {
   },
 ];
 
+const WIG_PRODUCTS = ["deep wave deluxe", "midnight straight deluxe"];
+
+function bannerFor(name: string, fallback: string) {
+  return WIG_PRODUCTS.includes(name.trim().toLowerCase()) ? "Wigs" : fallback;
+}
+
 function pick(products: Product[], id: CollectionId) {
   const sorted = [...products];
   if (id === "best") sorted.sort((a, b) => Number(b.featured) - Number(a.featured));
