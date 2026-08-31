@@ -4,6 +4,17 @@ import { ProductCard } from "@/components/ProductCard";
 import bundlesAsset from "@/assets/col-bundles.jpg.asset.json";
 import lashesAsset from "@/assets/col-lashes.jpg.asset.json";
 import lipglossAsset from "@/assets/col-lipgloss.jpg.asset.json";
+import wigBobAsset from "@/assets/prod-wig-bob.jpg.asset.json";
+import wigLongAsset from "@/assets/prod-wig-long.jpg.asset.json";
+import bundlesHandAsset from "@/assets/prod-bundles-hand.jpg.asset.json";
+import bundleBoxAsset from "@/assets/prod-bundle-box.jpg.asset.json";
+
+const gridImages = [
+  bundlesHandAsset.url,
+  wigLongAsset.url,
+  bundleBoxAsset.url,
+  wigBobAsset.url,
+];
 
 type CollectionId = "new" | "sale" | "best";
 
@@ -111,18 +122,22 @@ export function CollectionShowcase({ products }: { products: Product[] }) {
         </div>
       </div>
 
-      {/* Active collection grid */}
-      <div className="bg-background">
+      {/* Active collection grid — bold banner band */}
+      <div className="bg-pink-soft">
         <div className="mx-auto max-w-6xl px-4 py-16 sm:py-20">
-          <h2 className="text-center font-display text-4xl font-extrabold uppercase tracking-tight sm:text-6xl">
+          <h2 className="text-center font-display text-5xl font-extrabold uppercase leading-[0.9] tracking-tighter text-accent-foreground sm:text-7xl">
             {current.heading}
           </h2>
-          <p className="mx-auto mt-3 max-w-md text-center text-sm text-muted-foreground">
+          <p className="mx-auto mt-4 max-w-md text-center text-sm text-accent-foreground/70">
             {current.blurb} Tap a collection above to switch.
           </p>
-          <div className="mt-10 grid grid-cols-2 gap-x-5 gap-y-10 lg:grid-cols-4 [&_.rounded-2xl]:rounded-none [&_.rounded-2xl]:border [&_.rounded-2xl]:border-border [&_.rounded-2xl]:bg-card">
-            {shown.map((product) => (
-              <ProductCard key={product.id} product={product} />
+          <div className="mt-12 grid grid-cols-2 gap-x-5 gap-y-10 lg:grid-cols-4 [&_.rounded-2xl]:rounded-none [&_.rounded-2xl]:border [&_.rounded-2xl]:border-border [&_.rounded-2xl]:bg-card">
+            {shown.map((product, i) => (
+              <ProductCard
+                key={product.id}
+                product={product}
+                imageUrl={gridImages[i % gridImages.length]}
+              />
             ))}
           </div>
         </div>
