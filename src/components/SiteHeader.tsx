@@ -132,8 +132,13 @@ export function SiteHeader() {
             <Link
               key={`${link.to}-${link.label}`}
               to={link.to}
-              activeOptions={{ exact: link.to === "/" }}
-              activeProps={{ className: "bg-primary text-primary-foreground" }}
+              activeOptions={{ exact: true }}
+              activeProps={{
+                className:
+                  link.label === "Home"
+                    ? "bg-primary text-primary-foreground"
+                    : "text-foreground hover:bg-primary/10 hover:text-primary",
+              }}
               inactiveProps={{ className: "text-foreground hover:bg-primary/10 hover:text-primary" }}
               className="shrink-0 rounded-full px-4 py-2.5 text-xs font-extrabold uppercase tracking-wide transition-colors sm:px-6 sm:text-sm"
             >
