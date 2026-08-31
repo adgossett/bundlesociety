@@ -81,17 +81,17 @@ export function HeroFolders() {
       />
       <div
         aria-hidden
-        className="absolute left-[5%] top-[30%] aspect-square w-[26%] rounded-full bg-pink-deep/18"
+        className="absolute left-[5%] top-[30%] aspect-square w-[26%] rounded-full bg-pink-deep/[0.18]"
         style={{ filter: "blur(36px)" }}
       />
       <div
         aria-hidden
-        className="absolute left-[12%] bottom-[22%] aspect-square w-[28%] rounded-full bg-primary/18"
+        className="absolute left-[12%] bottom-[22%] aspect-square w-[28%] rounded-full bg-primary/[0.18]"
         style={{ filter: "blur(38px)" }}
       />
       <div
         aria-hidden
-        className="absolute right-[18%] bottom-[10%] aspect-square w-[22%] rounded-full bg-pink-deep/15"
+        className="absolute right-[18%] bottom-[10%] aspect-square w-[22%] rounded-full bg-pink-deep/[0.15]"
         style={{ filter: "blur(32px)" }}
       />
 
