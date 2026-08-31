@@ -74,7 +74,7 @@ export function CollectionShowcase({ products }: { products: Product[] }) {
                     : "border-border shadow-sm hover:border-pink-deep"
                 }`}
               >
-                <span className="absolute left-1/2 top-4 z-10 w-max -translate-x-1/2 whitespace-nowrap bg-background/90 px-2 py-0.5 text-[8px] font-bold uppercase tracking-[0.25em] text-pink-deep backdrop-blur">
+                <span className="absolute left-1/2 top-4 z-10 w-max -translate-x-1/2 whitespace-nowrap bg-primary px-2 py-0.5 text-[8px] font-bold uppercase tracking-[0.25em] text-primary-foreground backdrop-blur">
                   Shop by collection
                 </span>
                 <div className="relative aspect-[4/5] w-full overflow-hidden">
@@ -85,7 +85,7 @@ export function CollectionShowcase({ products }: { products: Product[] }) {
                     className="absolute inset-0 size-full object-cover opacity-90 transition-transform duration-500 group-hover:scale-105"
                   />
                   <span
-                    className="absolute bottom-6 left-5 font-display text-4xl font-extrabold uppercase leading-none tracking-tight text-foreground sm:text-5xl"
+                    className="absolute bottom-6 left-5 font-display text-4xl font-extrabold uppercase leading-none tracking-tight text-white drop-shadow-[0_2px_4px_rgba(0,0,0,0.55)] sm:text-5xl"
                     style={{ writingMode: "vertical-rl", transform: "rotate(180deg)" }}
                   >
                     {c.title}
