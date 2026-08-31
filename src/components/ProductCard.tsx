@@ -34,16 +34,14 @@ export function ProductCard({
     <div className="group">
       {/* Image + hover quick add (Shopify style) */}
       <div className="relative overflow-hidden rounded-2xl border border-border bg-card">
-        <Link to="/shop/$slug" params={{ slug: product.slug }} aria-label={product.name}>
-          <img
-            src={imageUrl ?? imageFor(product.image_key)}
-            alt={`${product.name} — ${product.texture} hair bundles`}
-            loading="lazy"
-            width={1024}
-            height={1024}
-            className="aspect-[4/5] w-full object-cover transition-transform duration-500 group-hover:scale-105"
-          />
-        </Link>
+        <img
+          src={imageUrl ?? imageFor(product.image_key)}
+          alt={`${product.name} — ${product.texture} hair bundles`}
+          loading="lazy"
+          width={1024}
+          height={1024}
+          className="aspect-[4/5] w-full object-cover transition-transform duration-500 group-hover:scale-105"
+        />
 
         {product.featured && (
           <span className="absolute left-3 top-3 rounded-full bg-pink-deep px-3 py-1 text-[11px] font-bold uppercase tracking-wider text-primary-foreground">
