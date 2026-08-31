@@ -1,11 +1,16 @@
 import { useEffect, useRef, useState } from "react";
 
 function parseValue(value: string) {
+  const range = value.match(/^(\d+)[–-]([\d,.]+)(.*)$/);
+  if (range) {
+    const num = parseFloat(range[2].replace(/,/g, ""));
+    return { target: num, prefix: range[1] + "–", suffix: range[3], decimals: 0 };
+  }
   const match = value.match(/^([\d,.]+)(.*)$/);
-  if (!match) return { target: 0, suffix: value, decimals: 0 };
+  if (!match) return { target: 0, prefix: "", suffix: value, decimals: 0 };
   const num = parseFloat(match[1].replace(/,/g, ""));
   const decimals = match[1].includes(".") ? match[1].split(".")[1].length : 0;
-  return { target: num, suffix: match[2], decimals };
+  return { target: num, prefix: "", suffix: match[2], decimals };
 }
 
 function format(n: number, decimals: number) {
