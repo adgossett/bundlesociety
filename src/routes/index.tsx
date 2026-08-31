@@ -231,19 +231,30 @@ function Home() {
       </section>
 
       {/* LOTS OF LOVE — reviews */}
-      <section className="overflow-hidden border-y border-border/60 bg-pink-soft/60">
-        <div className="flex w-max animate-marquee gap-8 border-b border-border/60 py-2 text-[0.65rem] font-bold uppercase tracking-[0.4em] text-accent-foreground">
+      <section className="overflow-hidden border-y border-border/60 bg-background">
+        <div className="flex w-max animate-marquee gap-8 border-b border-border/60 bg-card py-2 text-[0.65rem] font-bold uppercase tracking-[0.4em] text-foreground">
           {Array.from({ length: 8 }).map((_, i) => (
-            <span key={i}>Customer's reviews</span>
+            <span key={i} className="flex items-center gap-3">
+              <span className="size-1.5 rounded-full bg-primary" />
+              Customer's reviews
+              <span className="size-1.5 rounded-full bg-pink-deep" />
+            </span>
           ))}
         </div>
         <div className="mx-auto max-w-6xl px-4 py-16 text-center sm:py-20">
-          <h2 className="font-display text-5xl font-semibold uppercase leading-[0.95] tracking-tight sm:text-7xl">
+          <span className="inline-flex items-center gap-2 rounded-full border border-border bg-card px-3 py-1 text-[0.65rem] font-bold uppercase tracking-[0.2em] text-muted-foreground">
+            <span className="size-1.5 rounded-full bg-primary" />
+            Real reviews
+          </span>
+          <h2 className="mt-4 font-display text-5xl font-semibold uppercase leading-[0.95] tracking-tight sm:text-7xl">
             Lots of love
           </h2>
           <div className="mt-10 grid gap-6 sm:grid-cols-3">
             {testimonials.slice(0, 3).map((t) => (
-              <figure key={t.who} className="rounded-2xl border border-border bg-background p-6">
+              <figure
+                key={t.who}
+                className="rounded-3xl border border-border bg-card p-6 text-center shadow-card transition-transform duration-300 hover:-translate-y-1"
+              >
                 <div className="flex justify-center gap-0.5 text-primary">
                   {Array.from({ length: 5 }).map((_, i) => (
                     <Star key={i} className="size-4 fill-current" />
@@ -252,7 +263,7 @@ function Home() {
                 <blockquote className="mt-4 text-sm leading-relaxed text-muted-foreground">
                   “{t.quote}”
                 </blockquote>
-                <figcaption className="mt-3 text-xs font-bold uppercase tracking-[0.2em]">
+                <figcaption className="mt-3 text-xs font-bold uppercase tracking-[0.2em] text-foreground">
                   {t.who}
                 </figcaption>
               </figure>
