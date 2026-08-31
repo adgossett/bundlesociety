@@ -102,8 +102,13 @@ export function CollectionShowcase({ products }: { products: Product[] }) {
                     className="absolute inset-0 size-full object-cover opacity-90 transition-transform duration-500 group-hover:scale-105"
                   />
                   <span
-                    className="absolute bottom-6 left-5 font-display text-4xl font-extrabold uppercase leading-none tracking-tight text-white drop-shadow-[0_2px_4px_rgba(0,0,0,0.55)] sm:text-5xl"
-                    style={{ writingMode: "vertical-rl", transform: "rotate(180deg)" }}
+                    className="absolute bottom-6 left-5 font-display text-4xl font-extrabold uppercase leading-none tracking-tight text-white sm:text-5xl"
+                    style={{
+                      writingMode: "vertical-rl",
+                      transform: "rotate(180deg)",
+                      textShadow:
+                        "0 0 6px #fff, 0 0 14px rgba(255,255,255,0.95), 0 0 28px rgba(255,255,255,0.8), 0 0 48px rgba(255,255,255,0.55), 0 0 2px rgba(0,0,0,0.4)",
+                    }}
                   >
                     {c.title}
                   </span>
