@@ -52,6 +52,12 @@ export function HeroFolders() {
       aria-label="Product folders"
       className="pointer-events-none absolute top-[10%] right-[18%] hidden aspect-[928/1152] w-[min(50vw,38rem)] select-none md:block lg:right-[26%] xl:right-[34%]"
     >
+      {/* Large soft card that fills the space behind the folder artwork */}
+      <div
+        aria-hidden
+        className="absolute inset-[2%] rounded-[2.5rem] bg-gradient-to-br from-primary/15 via-white/80 to-pink-deep/12 shadow-card"
+      />
+
       <img
         src={flyerEmpty}
         alt=""
@@ -61,36 +67,30 @@ export function HeroFolders() {
         height={1152}
       />
 
-      {/* Soft brand-color wash behind the folders */}
+      {/* Soft blobs sitting on the white space behind the folders */}
       <div
         aria-hidden
-        className="absolute inset-0 bg-gradient-to-br from-primary/[0.12] via-transparent to-pink-deep/[0.10]"
+        className="absolute left-[5%] top-[8%] aspect-square w-[30%] rounded-full bg-primary/40"
+        style={{ filter: "blur(24px)" }}
       />
-
-      {/* Visible but soft decorative blobs in the white space */}
       <div
         aria-hidden
-        className="absolute left-[5%] top-[8%] aspect-square w-[30%] rounded-full bg-primary/45"
+        className="absolute left-[2%] top-[32%] aspect-square w-[26%] rounded-full bg-pink-deep/35"
         style={{ filter: "blur(22px)" }}
       />
       <div
         aria-hidden
-        className="absolute left-[2%] top-[32%] aspect-square w-[26%] rounded-full bg-pink-deep/40"
-        style={{ filter: "blur(20px)" }}
-      />
-      <div
-        aria-hidden
-        className="absolute left-[12%] bottom-[16%] aspect-square w-[28%] rounded-full bg-primary/40"
-        style={{ filter: "blur(20px)" }}
+        className="absolute left-[12%] bottom-[16%] aspect-square w-[28%] rounded-full bg-primary/35"
+        style={{ filter: "blur(22px)" }}
       />
 
       {/* Scattered brand dots — matches the logo dot motif */}
-      <span aria-hidden className="absolute left-[24%] top-[14%] size-3 rounded-full bg-primary/70" />
-      <span aria-hidden className="absolute left-[30%] top-[20%] size-2 rounded-full bg-pink-deep/70" />
-      <span aria-hidden className="absolute left-[20%] top-[42%] size-2.5 rounded-full bg-pink-deep/65" />
-      <span aria-hidden className="absolute left-[28%] top-[48%] size-3 rounded-full bg-primary/65" />
-      <span aria-hidden className="absolute left-[22%] bottom-[28%] size-3 rounded-full bg-primary/65" />
-      <span aria-hidden className="absolute left-[32%] bottom-[22%] size-2 rounded-full bg-pink-deep/65" />
+      <span aria-hidden className="absolute left-[24%] top-[14%] size-3 rounded-full bg-primary/75" />
+      <span aria-hidden className="absolute left-[30%] top-[20%] size-2 rounded-full bg-pink-deep/75" />
+      <span aria-hidden className="absolute left-[20%] top-[42%] size-2.5 rounded-full bg-pink-deep/70" />
+      <span aria-hidden className="absolute left-[28%] top-[48%] size-3 rounded-full bg-primary/70" />
+      <span aria-hidden className="absolute left-[22%] bottom-[28%] size-3 rounded-full bg-primary/70" />
+      <span aria-hidden className="absolute left-[32%] bottom-[22%] size-2 rounded-full bg-pink-deep/70" />
 
       {/* Curved arrows pointing at each folder from different sides */}
       <svg
