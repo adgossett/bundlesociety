@@ -52,21 +52,16 @@ export function HeroFolders() {
       aria-label="Product folders"
       className="pointer-events-none absolute top-[10%] right-[18%] hidden aspect-[928/1152] w-[min(50vw,38rem)] select-none md:block lg:right-[26%] xl:right-[34%]"
     >
-      {/* Soft brand-color blobs filling the space behind the folders */}
+      {/* Outer glow that spills past the folder artwork */}
       <div
         aria-hidden
-        className="absolute -right-[10%] top-[5%] aspect-square w-[55%] rounded-full bg-primary/25 blur-3xl"
+        className="absolute -right-[10%] top-[5%] aspect-square w-[55%] rounded-full bg-primary/30"
+        style={{ filter: "blur(64px)" }}
+      />
+      <div
+        aria-hidden
+        className="absolute bottom-[10%] -left-[5%] aspect-square w-[45%] rounded-full bg-pink-deep/25"
         style={{ filter: "blur(56px)" }}
-      />
-      <div
-        aria-hidden
-        className="absolute left-[15%] top-[28%] aspect-square w-[42%] rounded-full bg-pink-deep/20 blur-3xl"
-        style={{ filter: "blur(48px)" }}
-      />
-      <div
-        aria-hidden
-        className="absolute bottom-[18%] left-[5%] aspect-square w-[38%] rounded-full bg-primary/20 blur-3xl"
-        style={{ filter: "blur(44px)" }}
       />
 
       <img
@@ -76,6 +71,28 @@ export function HeroFolders() {
         className="absolute inset-0 size-full object-contain object-right [mask-image:linear-gradient(to_left,black_72%,transparent)]"
         width={928}
         height={1152}
+      />
+
+      {/* Soft blobs sitting on the white space behind the folders */}
+      <div
+        aria-hidden
+        className="absolute left-[8%] top-[8%] aspect-square w-[30%] rounded-full bg-primary/20"
+        style={{ filter: "blur(40px)" }}
+      />
+      <div
+        aria-hidden
+        className="absolute left-[5%] top-[30%] aspect-square w-[26%] rounded-full bg-pink-deep/18"
+        style={{ filter: "blur(36px)" }}
+      />
+      <div
+        aria-hidden
+        className="absolute left-[12%] bottom-[22%] aspect-square w-[28%] rounded-full bg-primary/18"
+        style={{ filter: "blur(38px)" }}
+      />
+      <div
+        aria-hidden
+        className="absolute right-[18%] bottom-[10%] aspect-square w-[22%] rounded-full bg-pink-deep/15"
+        style={{ filter: "blur(32px)" }}
       />
 
       {/* Curved arrows pointing at each folder from different sides */}
