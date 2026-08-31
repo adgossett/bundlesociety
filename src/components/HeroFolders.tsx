@@ -151,7 +151,7 @@ export function HeroFolders() {
               }`}
               style={{
                 textShadow:
-                  "0 0 6px hsl(var(--primary) / 0.95), 0 0 14px hsl(var(--primary) / 0.65), 0 0 22px hsl(var(--primary) / 0.4)",
+                  "0 0 6px rgba(255,255,255,0.95), 0 0 14px rgba(255,255,255,0.75), 0 0 24px rgba(255,255,255,0.55)",
               }}
             >
               {folder.label}
