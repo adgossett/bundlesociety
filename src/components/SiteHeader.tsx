@@ -38,87 +38,92 @@ export function SiteHeader() {
         </p>
       </div>
 
-      <div className="relative mx-auto flex max-w-7xl items-center justify-center px-4 pt-4 sm:px-8">
-        {/* Mobile hamburger */}
-        <div className="absolute left-4 top-1/2 -translate-y-1/2 md:hidden">
-          <Sheet open={open} onOpenChange={setOpen}>
-            <SheetTrigger asChild>
-              <button
-                aria-label="Open menu"
-                className="grid size-10 place-items-center rounded-full border border-foreground/20 text-foreground transition-colors hover:bg-foreground/10"
-              >
-                <Menu className="size-5" />
-              </button>
-            </SheetTrigger>
-            <SheetContent side="left" className="bg-background pb-8 pt-6">
-              <SheetHeader className="mb-4">
-                <SheetTitle className="sr-only">Navigation menu</SheetTitle>
-              </SheetHeader>
-              <nav className="flex flex-col items-center gap-2">
-                {links.map((link) => (
-                  <SheetClose asChild key={`mobile-${link.to}-${link.label}`}>
-                    <Link
-                      to={link.to}
-                      activeOptions={{ exact: true }}
-                      activeProps={{
-                        className:
-                          link.label === "Home"
-                            ? "bg-primary text-primary-foreground"
-                            : "text-foreground hover:bg-foreground/10",
-                      }}
-                      inactiveProps={{ className: "text-foreground hover:bg-foreground/10" }}
-                      className="w-full max-w-xs rounded-full px-6 py-3 text-center text-sm font-extrabold uppercase tracking-wide transition-colors"
-                    >
-                      {link.label}
-                    </Link>
-                  </SheetClose>
-                ))}
-                <div className="mt-4 text-xs font-semibold text-foreground/70">
+      <div className="mx-auto grid max-w-7xl grid-cols-[auto_minmax(0,1fr)_auto] items-center gap-2 px-3 pt-3 sm:gap-4 sm:px-8 sm:pt-4">
+        {/* Left: hamburger (mobile) / search (desktop) */}
+        <div className="flex shrink-0 items-center gap-2">
+          <div className="md:hidden">
+            <Sheet open={open} onOpenChange={setOpen}>
+              <SheetTrigger asChild>
+                <button
+                  aria-label="Open menu"
+                  className="grid size-10 shrink-0 place-items-center rounded-full border border-border bg-card text-foreground shadow-card transition-colors hover:bg-primary/10 hover:text-primary"
+                >
+                  <Menu className="size-5" />
+                </button>
+              </SheetTrigger>
+              <SheetContent side="left" className="w-[85vw] max-w-xs bg-background px-5 pb-8 pt-6">
+                <SheetHeader className="mb-5">
+                  <SheetTitle className="sr-only">Navigation menu</SheetTitle>
+                  <Logo size="xs" />
+                </SheetHeader>
+                <nav className="flex flex-col gap-1.5">
+                  {links.map((link) => (
+                    <SheetClose asChild key={`mobile-${link.to}-${link.label}`}>
+                      <Link
+                        to={link.to}
+                        activeOptions={{ exact: true }}
+                        activeProps={{
+                          className:
+                            link.label === "Home"
+                              ? "bg-primary text-primary-foreground"
+                              : "text-foreground hover:bg-primary/10 hover:text-primary",
+                        }}
+                        inactiveProps={{
+                          className: "text-foreground hover:bg-primary/10 hover:text-primary",
+                        }}
+                        className="w-full rounded-full px-5 py-3 text-sm font-extrabold uppercase tracking-wide transition-colors"
+                      >
+                        {link.label}
+                      </Link>
+                    </SheetClose>
+                  ))}
+                </nav>
+                <div className="mt-6 rounded-2xl border border-border bg-card p-4 text-xs font-semibold text-muted-foreground shadow-card">
                   United States | USD $
+                  <p className="mt-1 font-normal">Free shipping on orders above $100</p>
                 </div>
-              </nav>
-            </SheetContent>
-          </Sheet>
+              </SheetContent>
+            </Sheet>
+          </div>
+          <Link
+            to="/"
+            aria-label="Search bundles"
+            className="hidden size-11 shrink-0 place-items-center rounded-full border border-border bg-card text-foreground shadow-card transition-colors hover:bg-primary/10 hover:text-primary md:grid"
+          >
+            <Search className="size-4" />
+          </Link>
         </div>
 
         <Link
           to="/"
           aria-label="The Bundle Society home"
+          className="flex min-w-0 justify-center"
         >
           <Logo size="xs" />
         </Link>
 
-        {/* Desktop search button (left) */}
-        <Link
-          to="/"
-          aria-label="Search bundles"
-          className="absolute left-4 top-1/2 hidden size-11 -translate-y-1/2 place-items-center rounded-full border border-foreground/20 text-foreground transition-colors hover:bg-foreground/10 md:grid"
-        >
-          <Search className="size-4" />
-        </Link>
-
-        <div className="absolute right-4 top-1/2 flex -translate-y-1/2 items-center gap-1.5 sm:right-8 sm:gap-3">
-          <span className="hidden text-sm font-semibold text-foreground md:inline">
+        <div className="flex shrink-0 items-center gap-1.5 sm:gap-3">
+          <span className="hidden text-sm font-semibold text-foreground lg:inline">
             United States | USD $
           </span>
           <Link
             to="/"
             aria-label="Search bundles"
-            className="grid size-10 place-items-center rounded-full border border-foreground/20 text-foreground transition-colors hover:bg-foreground/10 sm:size-11 md:hidden"
+            className="grid size-10 shrink-0 place-items-center rounded-full border border-border bg-card text-foreground shadow-card transition-colors hover:bg-primary/10 hover:text-primary sm:size-11 md:hidden"
           >
             <Search className="size-4" />
           </Link>
           <Link
             to="/"
             aria-label="Account"
-            className="grid size-10 place-items-center rounded-full border border-foreground/20 text-foreground transition-colors hover:bg-foreground/10 sm:size-11"
+            className="hidden size-10 shrink-0 place-items-center rounded-full border border-border bg-card text-foreground shadow-card transition-colors hover:bg-primary/10 hover:text-primary sm:grid sm:size-11"
           >
             <User className="size-4" />
           </Link>
           <Link
             to="/"
             aria-label="Cart"
-            className="relative grid size-10 place-items-center rounded-full border border-foreground/20 text-foreground transition-colors hover:bg-foreground/10 sm:size-11"
+            className="relative grid size-10 shrink-0 place-items-center rounded-full border border-border bg-card text-foreground shadow-card transition-colors hover:bg-primary/10 hover:text-primary sm:size-11"
           >
             <ShoppingBag className="size-4" />
             {count > 0 && (
@@ -129,6 +134,30 @@ export function SiteHeader() {
           </Link>
         </div>
       </div>
+
+      {/* Mobile scrollable pill nav */}
+      <div className="mt-3 px-3 md:hidden">
+        <nav className="scrollbar-hide flex items-center gap-1 overflow-x-auto rounded-full border border-border bg-card p-1.5 shadow-card">
+          {links.map((link) => (
+            <Link
+              key={`m-pill-${link.label}`}
+              to={link.to}
+              activeOptions={{ exact: true }}
+              activeProps={{
+                className:
+                  link.label === "Home"
+                    ? "bg-primary text-primary-foreground"
+                    : "text-foreground hover:bg-primary/10 hover:text-primary",
+              }}
+              inactiveProps={{ className: "text-foreground hover:bg-primary/10 hover:text-primary" }}
+              className="shrink-0 rounded-full px-4 py-2 text-[0.7rem] font-extrabold uppercase tracking-wide transition-colors"
+            >
+              {link.label}
+            </Link>
+          ))}
+        </nav>
+      </div>
+
 
       {/* Desktop pill nav */}
       <div className="mx-auto mt-4 hidden max-w-7xl justify-center px-4 md:flex">
