@@ -1,22 +1,33 @@
 import { Link } from "@tanstack/react-router";
-import { Facebook, Instagram, Twitter } from "lucide-react";
+import { Facebook, Instagram, Mail, MessageCircle, Twitter } from "lucide-react";
 import logoAsset from "@/assets/logo.png.asset.json";
 
-const links = [
-  { to: "/", label: "Home" },
-] as const;
+const shopLinks = [
+  { to: "/", label: "Bundles" },
+  { to: "/", label: "Wigs" },
+  { to: "/", label: "Frontals" },
+  { to: "/", label: "Closures" },
+  { to: "/", label: "Custom Order" },
+];
+
+const helpLinks = [
+  { to: "/", label: "Contact" },
+  { to: "/", label: "Shipping" },
+  { to: "/", label: "Returns" },
+  { to: "/", label: "FAQ" },
+];
 
 export function SiteFooter() {
   return (
     <footer className="bg-background">
-      <div className="mx-auto grid max-w-6xl gap-12 px-4 py-16 sm:grid-cols-2 lg:grid-cols-3">
-        {/* Brand blurb + newsletter */}
-        <div>
+      <div className="mx-auto grid max-w-6xl gap-12 px-4 py-16 sm:grid-cols-2 lg:grid-cols-4">
+        {/* Brand */}
+        <div className="lg:col-span-1">
           <Link to="/" aria-label="The Bundle Society home">
             <img
               src={logoAsset.url}
               alt="The Bundle Society"
-              className="h-16 w-auto"
+              className="h-14 w-auto"
             />
           </Link>
           <p className="mt-4 max-w-xs text-sm leading-relaxed text-muted-foreground">
@@ -45,24 +56,13 @@ export function SiteFooter() {
           </form>
         </div>
 
-        {/* Logo accent */}
-        <div className="flex items-start justify-center">
-          <Link to="/" aria-label="The Bundle Society home" className="block">
-            <img
-              src={logoAsset.url}
-              alt="The Bundle Society"
-              className="h-28 w-auto opacity-90"
-            />
-          </Link>
-        </div>
-
-        {/* Links */}
-        <div className="sm:justify-self-end">
+        {/* Shop */}
+        <div>
           <h3 className="font-display text-xs font-semibold uppercase tracking-[0.3em] text-pink-deep">
-            Links
+            Shop
           </h3>
           <ul className="mt-4 space-y-2 text-sm text-muted-foreground">
-            {links.map((l) => (
+            {shopLinks.map((l) => (
               <li key={l.label}>
                 <Link to={l.to} className="transition-colors hover:text-primary">
                   {l.label}
@@ -70,6 +70,42 @@ export function SiteFooter() {
               </li>
             ))}
           </ul>
+        </div>
+
+        {/* Help */}
+        <div>
+          <h3 className="font-display text-xs font-semibold uppercase tracking-[0.3em] text-pink-deep">
+            Help
+          </h3>
+          <ul className="mt-4 space-y-2 text-sm text-muted-foreground">
+            {helpLinks.map((l) => (
+              <li key={l.label}>
+                <Link to={l.to} className="transition-colors hover:text-primary">
+                  {l.label}
+                </Link>
+              </li>
+            ))}
+          </ul>
+        </div>
+
+        {/* Contact */}
+        <div>
+          <h3 className="font-display text-xs font-semibold uppercase tracking-[0.3em] text-pink-deep">
+            Contact
+          </h3>
+          <div className="mt-4 space-y-3 text-sm text-muted-foreground">
+            <p>
+              Questions about a custom set or an order? We're here to help.
+            </p>
+            <div className="flex items-center gap-2">
+              <Mail className="size-4 text-primary" />
+              <span>hello@thebundlesociety.com</span>
+            </div>
+            <div className="flex items-center gap-2">
+              <MessageCircle className="size-4 text-pink-deep" />
+              <span>Replies within 24 hours</span>
+            </div>
+          </div>
         </div>
       </div>
 
