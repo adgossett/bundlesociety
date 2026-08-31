@@ -27,7 +27,7 @@ export function CountUp({ value, className }: { value: string; className?: strin
   useEffect(() => {
     const el = ref.current;
     if (!el) return;
-    const { target, suffix, decimals } = parseValue(value);
+    const { target, prefix, suffix, decimals } = parseValue(value);
 
     const observer = new IntersectionObserver(
       (entries) => {
@@ -38,7 +38,7 @@ export function CountUp({ value, className }: { value: string; className?: strin
         const tick = (now: number) => {
           const p = Math.min((now - start) / duration, 1);
           const eased = 1 - Math.pow(1 - p, 3);
-          setDisplay(format(target * eased, decimals) + suffix);
+          setDisplay(prefix + format(target * eased, decimals) + suffix);
           if (p < 1) requestAnimationFrame(tick);
         };
         requestAnimationFrame(tick);
