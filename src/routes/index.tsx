@@ -23,7 +23,7 @@ import { CountUp } from "@/components/CountUp";
 
 
 import logoAsset from "@/assets/logo.png.asset.json";
-import socialImage from "@/assets/prod-bundle-box.jpg.asset.json";
+import socialImage from "@/assets/ig-model.png.asset.json";
 
 const productsQuery = queryOptions({
   queryKey: ["products"],
@@ -290,10 +290,14 @@ function Home() {
             </div>
           </div>
           <div className="text-center md:text-left">
-            <p className="font-display text-2xl italic text-background/80">Let's get social on</p>
-            <h2 className="mt-1 font-display text-5xl font-semibold uppercase leading-[0.9] tracking-tight text-pink-deep sm:text-7xl">
-              Instagram
-            </h2>
+            <div className="relative inline-block">
+              <p className="font-script relative z-10 -mb-4 -rotate-3 text-4xl text-white sm:-mb-6 sm:text-5xl">
+                Let's get social on
+              </p>
+              <h2 className="font-condensed text-[5.5rem] uppercase leading-[0.85] tracking-wide text-pink-deep sm:text-[8.5rem]">
+                Instagram
+              </h2>
+            </div>
             <a
               href="https://instagram.com"
               target="_blank"
@@ -307,13 +311,20 @@ function Home() {
         {/* torn paper edge */}
         <svg
           aria-hidden="true"
-          className="absolute bottom-0 left-0 h-8 w-full text-background sm:h-12"
+          className="absolute bottom-0 left-0 h-10 w-full text-background sm:h-14"
           viewBox="0 0 1200 48"
           preserveAspectRatio="none"
         >
+          {/* soft shadow strip behind the tear */}
           <path
             fill="currentColor"
-            d="M0,48 L0,30 L18,36 L35,22 L52,34 L70,18 L88,32 L105,24 L124,38 L142,20 L160,34 L178,26 L196,40 L215,22 L233,36 L250,24 L268,38 L287,20 L305,34 L322,26 L341,40 L360,18 L378,34 L396,24 L414,38 L433,22 L451,36 L470,26 L488,40 L507,20 L525,34 L543,24 L562,38 L580,22 L599,36 L617,26 L636,40 L655,20 L673,34 L691,24 L710,38 L728,22 L747,36 L765,26 L784,40 L802,20 L821,34 L839,24 L858,38 L876,22 L895,36 L913,26 L932,40 L950,20 L969,34 L987,24 L1006,38 L1024,22 L1043,36 L1061,26 L1080,40 L1098,20 L1117,34 L1135,24 L1154,38 L1172,22 L1190,34 L1200,28 L1200,48 Z"
+            opacity="0.35"
+            transform="translate(0,-6)"
+            d="M0,48 L0,26 L11,18 L27,11 L41,13 L56,15 L65,11 L77,23 L86,15 L98,17 L113,12 L129,35 L135,31 L147,12 L153,33 L161,22 L169,27 L184,23 L200,15 L215,32 L224,19 L238,31 L253,15 L262,28 L276,29 L287,27 L300,21 L309,36 L318,15 L328,30 L339,34 L349,27 L356,30 L364,37 L372,26 L378,31 L392,33 L403,24 L414,30 L429,38 L436,35 L446,28 L462,11 L472,35 L488,38 L498,34 L514,19 L527,20 L542,14 L548,21 L558,20 L567,26 L580,12 L593,27 L603,21 L615,39 L625,34 L636,34 L645,15 L653,16 L669,15 L682,39 L690,21 L696,18 L710,23 L725,20 L739,32 L755,31 L768,41 L784,39 L796,26 L808,14 L824,23 L833,12 L846,15 L857,27 L864,15 L872,27 L883,27 L890,36 L905,24 L921,21 L936,22 L943,17 L956,26 L969,19 L977,16 L988,33 L1001,40 L1009,27 L1018,29 L1026,35 L1032,39 L1042,37 L1049,37 L1059,29 L1067,25 L1076,31 L1090,24 L1099,33 L1108,36 L1120,37 L1129,19 L1142,24 L1148,17 L1158,25 L1167,35 L1178,29 L1189,19 L1198,12 L1211,17 L1200,48 Z"
+          />
+          <path
+            fill="currentColor"
+            d="M0,48 L0,26 L11,18 L27,11 L41,13 L56,15 L65,11 L77,23 L86,15 L98,17 L113,12 L129,35 L135,31 L147,12 L153,33 L161,22 L169,27 L184,23 L200,15 L215,32 L224,19 L238,31 L253,15 L262,28 L276,29 L287,27 L300,21 L309,36 L318,15 L328,30 L339,34 L349,27 L356,30 L364,37 L372,26 L378,31 L392,33 L403,24 L414,30 L429,38 L436,35 L446,28 L462,11 L472,35 L488,38 L498,34 L514,19 L527,20 L542,14 L548,21 L558,20 L567,26 L580,12 L593,27 L603,21 L615,39 L625,34 L636,34 L645,15 L653,16 L669,15 L682,39 L690,21 L696,18 L710,23 L725,20 L739,32 L755,31 L768,41 L784,39 L796,26 L808,14 L824,23 L833,12 L846,15 L857,27 L864,15 L872,27 L883,27 L890,36 L905,24 L921,21 L936,22 L943,17 L956,26 L969,19 L977,16 L988,33 L1001,40 L1009,27 L1018,29 L1026,35 L1032,39 L1042,37 L1049,37 L1059,29 L1067,25 L1076,31 L1090,24 L1099,33 L1108,36 L1120,37 L1129,19 L1142,24 L1148,17 L1158,25 L1167,35 L1178,29 L1189,19 L1198,12 L1211,17 L1200,48 Z"
           />
         </svg>
       </section>
