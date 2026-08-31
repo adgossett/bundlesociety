@@ -12,16 +12,7 @@ import {
   SheetClose,
 } from "@/components/ui/sheet";
 
-const links = [
-  { to: "/", label: "Home" },
-  { to: "/shop", label: "Shop" },
-  { to: "/shop", label: "Bundles" },
-  { to: "/shop", label: "Wigs" },
-  { to: "/shop", label: "Frontals" },
-  { to: "/shop", label: "Closures" },
-  { to: "/contact", label: "Custom Order" },
-  { to: "/contact", label: "Contact" },
-];
+const links = [{ to: "/", label: "Home" }] as const;
 
 export function SiteHeader() {
   const { count } = useCart();
