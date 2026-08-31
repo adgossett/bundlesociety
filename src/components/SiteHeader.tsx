@@ -12,7 +12,16 @@ import {
   SheetClose,
 } from "@/components/ui/sheet";
 
-const links = [{ to: "/", label: "Home" }] as const;
+const links = [
+  { to: "/", label: "Home" },
+  { to: "/", label: "Shop" },
+  { to: "/", label: "Bundles" },
+  { to: "/", label: "Wigs" },
+  { to: "/", label: "Frontals" },
+  { to: "/", label: "Closures" },
+  { to: "/", label: "Custom Order" },
+  { to: "/", label: "Contact" },
+] as const;
 
 export function SiteHeader() {
   const { count } = useCart();
@@ -50,8 +59,13 @@ export function SiteHeader() {
                   <SheetClose asChild key={`mobile-${link.to}-${link.label}`}>
                     <Link
                       to={link.to}
-                      activeOptions={{ exact: link.to === "/" }}
-                      activeProps={{ className: "bg-primary text-primary-foreground" }}
+                      activeOptions={{ exact: true }}
+                      activeProps={{
+                        className:
+                          link.label === "Home"
+                            ? "bg-primary text-primary-foreground"
+                            : "text-foreground hover:bg-foreground/10",
+                      }}
                       inactiveProps={{ className: "text-foreground hover:bg-foreground/10" }}
                       className="w-full max-w-xs rounded-full px-6 py-3 text-center text-sm font-extrabold uppercase tracking-wide transition-colors"
                     >
@@ -123,8 +137,13 @@ export function SiteHeader() {
             <Link
               key={`${link.to}-${link.label}`}
               to={link.to}
-              activeOptions={{ exact: link.to === "/" }}
-              activeProps={{ className: "bg-primary text-primary-foreground" }}
+              activeOptions={{ exact: true }}
+              activeProps={{
+                className:
+                  link.label === "Home"
+                    ? "bg-primary text-primary-foreground"
+                    : "text-foreground hover:bg-primary/10 hover:text-primary",
+              }}
               inactiveProps={{ className: "text-foreground hover:bg-primary/10 hover:text-primary" }}
               className="shrink-0 rounded-full px-4 py-2.5 text-xs font-extrabold uppercase tracking-wide transition-colors sm:px-6 sm:text-sm"
             >
