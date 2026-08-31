@@ -23,7 +23,7 @@ import { CountUp } from "@/components/CountUp";
 
 
 import logoAsset from "@/assets/logo.png.asset.json";
-import socialImage from "@/assets/ig-model.png.asset.json";
+import instagramBanner from "@/assets/instagram-banner.png.asset.json";
 
 const productsQuery = queryOptions({
   queryKey: ["products"],
