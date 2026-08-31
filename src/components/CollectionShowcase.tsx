@@ -1,6 +1,9 @@
 import { useState } from "react";
-import { imageFor, type Product } from "@/lib/shop";
+import { type Product } from "@/lib/shop";
 import { ProductCard } from "@/components/ProductCard";
+import bundlesAsset from "@/assets/col-bundles.jpg.asset.json";
+import lashesAsset from "@/assets/col-lashes.jpg.asset.json";
+import lipglossAsset from "@/assets/col-lipgloss.jpg.asset.json";
 
 type CollectionId = "new" | "sale" | "best";
 
@@ -8,12 +11,35 @@ const collections: {
   id: CollectionId;
   title: string;
   heading: string;
-  imageKey: string;
+  blurb: string;
+  image: string;
   tone: "pink" | "lime";
 }[] = [
-  { id: "new", title: "New Arrivals", heading: "Shop Our New Arrivals", imageKey: "straight", tone: "pink" },
-  { id: "sale", title: "Flash Sale", heading: "Shop The Flash Sale", imageKey: "body", tone: "lime" },
-  { id: "best", title: "Best Sellers", heading: "Shop Our Best Sellers", imageKey: "deep", tone: "pink" },
+  {
+    id: "new",
+    title: "Bundles",
+    heading: "Shop Our Hair Bundles",
+    blurb:
+      "Premium human hair in straight, body wave and deep wave — soft, full and long-lasting.",
+    image: bundlesAsset.url,
+    tone: "pink",
+  },
+  {
+    id: "sale",
+    title: "Lashes",
+    heading: "Shop The Lash Collection",
+    blurb: "Fluffy, reusable strip lashes that finish the look in seconds.",
+    image: lashesAsset.url,
+    tone: "lime",
+  },
+  {
+    id: "best",
+    title: "Lip Gloss",
+    heading: "Shop Our Pink Gloss",
+    blurb: "Hydrating, high-shine gloss made to pair with every set.",
+    image: lipglossAsset.url,
+    tone: "pink",
+  },
 ];
 
 function pick(products: Product[], id: CollectionId) {
@@ -53,7 +79,7 @@ export function CollectionShowcase({ products }: { products: Product[] }) {
                 </span>
                 <div className="relative aspect-[4/5] w-full overflow-hidden">
                   <img
-                    src={imageFor(c.imageKey)}
+                    src={c.image}
                     alt={`${c.title} collection`}
                     loading="lazy"
                     className="absolute inset-0 size-full object-cover opacity-90 transition-transform duration-500 group-hover:scale-105"
@@ -92,7 +118,7 @@ export function CollectionShowcase({ products }: { products: Product[] }) {
             {current.heading}
           </h2>
           <p className="mx-auto mt-3 max-w-md text-center text-sm text-muted-foreground">
-            Premium human hair bundles — soft, full and long-lasting. Tap a collection above to switch.
+            {current.blurb} Tap a collection above to switch.
           </p>
           <div className="mt-10 grid grid-cols-2 gap-x-5 gap-y-10 lg:grid-cols-4 [&_.rounded-2xl]:rounded-none [&_.rounded-2xl]:border [&_.rounded-2xl]:border-border [&_.rounded-2xl]:bg-card">
             {shown.map((product) => (
