@@ -48,7 +48,7 @@ export function BestSellerBanner() {
               350g density
             </p>
             <svg
-              viewBox="0 0 120 60"
+              viewBox="0 0 120 64"
               className="mt-1 w-full text-foreground"
               fill="none"
               stroke="currentColor"
@@ -65,7 +65,7 @@ export function BestSellerBanner() {
               6x6 HD lace
             </p>
             <svg
-              viewBox="0 0 120 60"
+              viewBox="0 0 120 64"
               className="mt-1 w-full text-foreground"
               fill="none"
               stroke="currentColor"
