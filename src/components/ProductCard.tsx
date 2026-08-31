@@ -1,4 +1,3 @@
-import { Link } from "@tanstack/react-router";
 import { ShoppingBag, Star } from "lucide-react";
 import { toast } from "sonner";
 import { useCart } from "@/lib/cart";
@@ -65,9 +64,7 @@ export function ProductCard({
             {product.texture}
           </p>
           <h3 className="mt-1 font-display text-lg font-semibold leading-tight">
-            <Link to="/shop/$slug" params={{ slug: product.slug }} className="hover:text-primary">
-              {product.name}
-            </Link>
+            {product.name}
           </h3>
           <p className="mt-0.5 text-sm text-muted-foreground">
             {product.lengths[0]}"–{product.lengths[product.lengths.length - 1]}"
