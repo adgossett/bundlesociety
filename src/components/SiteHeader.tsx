@@ -59,8 +59,13 @@ export function SiteHeader() {
                   <SheetClose asChild key={`mobile-${link.to}-${link.label}`}>
                     <Link
                       to={link.to}
-                      activeOptions={{ exact: link.to === "/" }}
-                      activeProps={{ className: "bg-primary text-primary-foreground" }}
+                      activeOptions={{ exact: true }}
+                      activeProps={{
+                        className:
+                          link.label === "Home"
+                            ? "bg-primary text-primary-foreground"
+                            : "text-foreground hover:bg-foreground/10",
+                      }}
                       inactiveProps={{ className: "text-foreground hover:bg-foreground/10" }}
                       className="w-full max-w-xs rounded-full px-6 py-3 text-center text-sm font-extrabold uppercase tracking-wide transition-colors"
                     >
