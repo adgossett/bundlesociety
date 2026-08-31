@@ -122,13 +122,13 @@ export function CollectionShowcase({ products }: { products: Product[] }) {
         </div>
       </div>
 
-      {/* Active collection grid — bold banner band */}
-      <div className="bg-pink-soft">
+      {/* Active collection grid — light banner band */}
+      <div className="bg-card">
         <div className="mx-auto max-w-6xl px-4 py-16 sm:py-20">
-          <h2 className="text-center font-display text-5xl font-extrabold uppercase leading-[0.9] tracking-tighter text-accent-foreground sm:text-7xl">
+          <h2 className="text-center font-display text-5xl font-extrabold uppercase leading-[0.9] tracking-tighter text-foreground sm:text-7xl">
             {current.heading}
           </h2>
-          <p className="mx-auto mt-4 max-w-md text-center text-sm text-accent-foreground/70">
+          <p className="mx-auto mt-4 max-w-md text-center text-sm text-muted-foreground">
             {current.blurb} Tap a collection above to switch.
           </p>
           <div className="mt-12 grid grid-cols-2 gap-x-5 gap-y-10 lg:grid-cols-4 [&_.rounded-2xl]:rounded-none [&_.rounded-2xl]:border [&_.rounded-2xl]:border-border [&_.rounded-2xl]:bg-card">
