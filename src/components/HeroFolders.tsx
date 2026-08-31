@@ -52,6 +52,12 @@ export function HeroFolders() {
       aria-label="Product folders"
       className="pointer-events-none absolute top-[10%] right-[18%] hidden aspect-[928/1152] w-[min(50vw,38rem)] select-none md:block lg:right-[26%] xl:right-[34%]"
     >
+      {/* Soft colored backdrop behind the folder artwork */}
+      <div
+        aria-hidden
+        className="absolute -inset-[8%] rounded-[3rem] bg-gradient-to-br from-primary/20 via-background/60 to-pink-deep/15 shadow-card"
+      />
+
       <img
         src={flyerEmpty}
         alt=""
@@ -60,6 +66,15 @@ export function HeroFolders() {
         width={928}
         height={1152}
       />
+
+      {/* Decorative brand dots around the folder artwork */}
+      <span aria-hidden className="absolute -left-[2%] top-[8%] size-3 rounded-full bg-primary" />
+      <span aria-hidden className="absolute -left-[1%] top-[12%] size-2 rounded-full bg-pink-deep" />
+      <span aria-hidden className="absolute -right-[3%] top-[28%] size-3 rounded-full bg-pink-deep" />
+      <span aria-hidden className="absolute -right-[2%] top-[32%] size-2 rounded-full bg-primary" />
+      <span aria-hidden className="absolute -left-[3%] bottom-[22%] size-2.5 rounded-full bg-pink-deep" />
+      <span aria-hidden className="absolute -left-[1%] bottom-[26%] size-2 rounded-full bg-primary" />
+      <span aria-hidden className="absolute -right-[2%] bottom-[12%] size-3 rounded-full bg-primary" />
 
       {/* Curved arrows pointing at each folder from different sides */}
       <svg
