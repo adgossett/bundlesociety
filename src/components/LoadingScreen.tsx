@@ -28,11 +28,6 @@ export function LoadingScreen() {
         alt="The Bundle Society"
         className="w-56 animate-[tbs-logo-pop_1.1s_ease-out_both] sm:w-72"
       />
-      <div className="mt-8 flex gap-2">
-        <span className="h-2.5 w-2.5 animate-bounce rounded-full bg-[#A8C32A] [animation-delay:-0.3s]" />
-        <span className="h-2.5 w-2.5 animate-bounce rounded-full bg-[#E87BA0] [animation-delay:-0.15s]" />
-        <span className="h-2.5 w-2.5 animate-bounce rounded-full bg-[#A8C32A]" />
-      </div>
     </div>
   );
 }
