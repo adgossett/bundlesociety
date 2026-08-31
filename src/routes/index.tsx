@@ -270,13 +270,17 @@ function Home() {
           ))}
         </div>
         <div className="mx-auto grid max-w-6xl items-center gap-10 px-4 py-16 pb-28 sm:py-20 sm:pb-32 md:grid-cols-2">
-          <div className="mx-auto w-full max-w-sm rotate-[-2deg] border-2 border-background/20 bg-pink-soft p-4 shadow-card">
-            <img
-              src={socialImage.url}
-              alt="Bundle Society hair bundles"
-              className="aspect-[4/5] w-full object-cover"
-              loading="lazy"
-            />
+          <div className="relative mx-auto w-full max-w-sm">
+            <Heart className="absolute -left-6 -top-6 size-10 fill-pink-soft text-pink-soft" />
+            <Heart className="absolute -bottom-5 -right-5 size-8 fill-pink-soft text-pink-soft" />
+            <div className="rotate-[-2deg] border-[10px] border-pink-soft shadow-card">
+              <img
+                src={socialImage.url}
+                alt="Bundle Society hair bundles"
+                className="aspect-[4/5] w-full object-cover"
+                loading="lazy"
+              />
+            </div>
           </div>
           <div className="text-center md:text-left">
             <p className="font-display text-2xl italic text-background/80">Let's get social on</p>
@@ -287,7 +291,7 @@ function Home() {
               href="https://instagram.com"
               target="_blank"
               rel="noreferrer"
-              className="mt-7 inline-flex items-center gap-2 rounded-full border border-background/30 px-7 py-3.5 font-display text-sm font-semibold uppercase tracking-[0.15em] transition-colors hover:border-primary hover:text-primary"
+              className="mt-7 inline-flex items-center gap-2 rounded-full border-2 border-background/40 px-7 py-3.5 font-display text-sm font-semibold uppercase tracking-[0.15em] transition-colors hover:border-primary hover:text-primary"
             >
               <Instagram className="size-4" /> @thebundlesociety
             </a>
