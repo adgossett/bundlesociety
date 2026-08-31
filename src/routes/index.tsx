@@ -272,13 +272,19 @@ function Home() {
         </div>
         <div className="mx-auto grid max-w-6xl items-center gap-10 px-4 py-16 pb-28 sm:py-20 sm:pb-32 md:grid-cols-2">
           <div className="relative mx-auto w-full max-w-sm">
-            <Heart className="absolute -left-6 -top-6 size-10 fill-pink-soft text-pink-soft" />
-            <Heart className="absolute -bottom-5 -right-5 size-8 fill-pink-soft text-pink-soft" />
-            <div className="rotate-[-2deg] border-[10px] border-pink-soft shadow-card">
+            {/* corner stickers */}
+            <div className="absolute -left-4 -top-4 z-10 rotate-[-12deg] border-2 border-pink-soft bg-foreground p-2 shadow-card">
+              <Heart className="size-4 fill-pink-soft text-pink-soft" />
+            </div>
+            <div className="absolute -bottom-4 -right-4 z-10 rotate-[10deg] border-2 border-pink-soft bg-foreground p-2 shadow-card">
+              <Heart className="size-4 fill-pink-soft text-pink-soft" />
+            </div>
+            {/* pink polaroid-style frame with cropped inset photo */}
+            <div className="rotate-[-2deg] bg-pink-soft p-5 pb-16 shadow-card sm:p-6 sm:pb-20">
               <img
                 src={socialImage.url}
                 alt="Bundle Society hair bundles"
-                className="aspect-[4/5] w-full object-cover"
+                className="aspect-[4/5] w-full border-2 border-foreground/10 object-cover object-top"
                 loading="lazy"
               />
             </div>
