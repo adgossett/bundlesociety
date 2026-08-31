@@ -34,7 +34,7 @@ export function CountUp({ value, className }: { value: string; className?: strin
 
     const observer = new IntersectionObserver(
       (entries) => {
-        if (!entries[0].isIntersecting || started.current) return;
+        if (!entries[0]?.isIntersecting || started.current) return;
         started.current = true;
         const duration = 1600;
         const start = performance.now();
