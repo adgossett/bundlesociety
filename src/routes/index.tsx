@@ -337,6 +337,9 @@ function Home() {
         </div>
       </section>
 
+      <ContactForm />
+
+
     </div>
   );
 }
