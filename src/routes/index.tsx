@@ -1,11 +1,19 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { queryOptions, useSuspenseQuery } from "@tanstack/react-query";
-import { ArrowDown, ArrowRight, ArrowUpRight } from "lucide-react";
+import { useState } from "react";
+import { toast } from "sonner";
+import {
+  ArrowDown,
+  ArrowRight,
+  CreditCard,
+  Instagram,
+  ShoppingCart,
+  Star,
+  Truck,
+} from "lucide-react";
 import { listProducts } from "@/lib/shop.functions";
 import { formatPrice, type Product } from "@/lib/shop";
-import { ProductCard } from "@/components/ProductCard";
 import { SearchTypewriter } from "@/components/SearchTypewriter";
-import { CartPlayground } from "@/components/CartPlayground";
 import { HeroFolders } from "@/components/HeroFolders";
 import { CollectionShowcase } from "@/components/CollectionShowcase";
 import { CountUp } from "@/components/CountUp";
@@ -14,6 +22,7 @@ import { CountUp } from "@/components/CountUp";
 
 
 import logoAsset from "@/assets/logo.png.asset.json";
+import socialImage from "@/assets/prod-bundle-box.jpg.asset.json";
 
 const productsQuery = queryOptions({
   queryKey: ["products"],
@@ -55,24 +64,6 @@ const stats = [
   { value: "4.9", label: "Average rating" },
 ];
 
-const textureDetail = [
-  {
-    numeral: "I",
-    name: "Straight",
-    body: "Glass-flat, mirror shine. The blowout finish that lasts through the week.",
-  },
-  {
-    numeral: "II",
-    name: "Body Wave",
-    body: "Loose, bouncy movement. Our most-ordered texture for everyday softness.",
-  },
-  {
-    numeral: "III",
-    name: "Deep Wave",
-    body: "Deep, defined curl pattern with volume that holds after every wash day.",
-  },
-];
-
 const testimonials = [
   { quote: "Third set from them and the hair still looks brand new.", who: "Naomi · Atlanta" },
   { quote: "The deep wave holds a curl for weeks. I never go anywhere else.", who: "Simone · Houston" },
@@ -81,11 +72,17 @@ const testimonials = [
   { quote: "Ordered on Monday, installed by Friday. Obsessed.", who: "Tasha · Dallas" },
 ];
 
+const howItWorks = [
+  { icon: ShoppingCart, title: "Add to cart", body: "Pick your textures and lengths, then checkout." },
+  { icon: CreditCard, title: "Payment", body: "We accept card, Cash App and Zelle payments." },
+  { icon: Truck, title: "Shipping", body: "Sets ship within 1–3 business days, tracked." },
+];
+
 function Home() {
   const { data } = useSuspenseQuery(productsQuery);
   const products = data as Product[];
-  const featured = products.filter((p) => p.featured).slice(0, 3);
   const lowest = products.reduce((min, p) => Math.min(min, p.price_cents), Infinity);
+  const [email, setEmail] = useState("");
 
   return (
     <div className="w-full">
