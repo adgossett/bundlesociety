@@ -4,10 +4,6 @@ import logoAsset from "@/assets/logo.png.asset.json";
 
 const links = [
   { to: "/", label: "Home" },
-  { to: "/shop", label: "Shop" },
-  { to: "/contact", label: "Custom orders" },
-  { to: "/contact", label: "FAQ" },
-  { to: "/contact", label: "Contact" },
 ] as const;
 
 export function SiteFooter() {

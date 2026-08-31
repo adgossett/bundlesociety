@@ -115,13 +115,13 @@ function Home() {
 
             <div className="mt-8 flex flex-wrap justify-center gap-3 md:justify-start">
               <Link
-                to="/shop"
+                to="/"
                 className="rounded-full bg-primary px-7 py-3.5 font-display text-base font-semibold text-primary-foreground shadow-card transition-transform hover:-translate-y-0.5"
               >
                 Shop bundles
               </Link>
               <Link
-                to="/contact"
+                to="/"
                 className="rounded-full bg-pink-soft px-7 py-3.5 font-display text-base font-semibold text-accent-foreground shadow-card transition-transform hover:-translate-y-0.5"
               >
                 Custom order
@@ -323,13 +323,13 @@ function Home() {
         </p>
         <div className="mt-8 flex flex-wrap justify-center gap-3">
           <Link
-            to="/shop"
+            to="/"
             className="rounded-full bg-primary px-7 py-3.5 font-display text-base font-semibold text-primary-foreground shadow-card transition-transform hover:-translate-y-0.5"
           >
             Shop bundles
           </Link>
           <Link
-            to="/contact"
+            to="/"
             className="rounded-full bg-pink-soft px-7 py-3.5 font-display text-base font-semibold text-accent-foreground shadow-card transition-transform hover:-translate-y-0.5"
           >
             Request a custom set

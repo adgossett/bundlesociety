@@ -76,7 +76,7 @@ export function SiteHeader() {
 
         {/* Desktop search button (left) */}
         <Link
-          to="/shop"
+          to="/"
           aria-label="Search bundles"
           className="absolute left-4 top-1/2 hidden size-11 -translate-y-1/2 place-items-center rounded-full border border-foreground/20 text-foreground transition-colors hover:bg-foreground/10 md:grid"
         >
@@ -88,21 +88,21 @@ export function SiteHeader() {
             United States | USD $
           </span>
           <Link
-            to="/shop"
+            to="/"
             aria-label="Search bundles"
             className="grid size-10 place-items-center rounded-full border border-foreground/20 text-foreground transition-colors hover:bg-foreground/10 sm:size-11 md:hidden"
           >
             <Search className="size-4" />
           </Link>
           <Link
-            to="/contact"
+            to="/"
             aria-label="Account"
             className="grid size-10 place-items-center rounded-full border border-foreground/20 text-foreground transition-colors hover:bg-foreground/10 sm:size-11"
           >
             <User className="size-4" />
           </Link>
           <Link
-            to="/cart"
+            to="/"
             aria-label="Cart"
             className="relative grid size-10 place-items-center rounded-full border border-foreground/20 text-foreground transition-colors hover:bg-foreground/10 sm:size-11"
           >
