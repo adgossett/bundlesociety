@@ -8,6 +8,7 @@ import { SearchTypewriter } from "@/components/SearchTypewriter";
 import { CartPlayground } from "@/components/CartPlayground";
 import { HeroFolders } from "@/components/HeroFolders";
 import { CollectionShowcase } from "@/components/CollectionShowcase";
+import { CountUp } from "@/components/CountUp";
 
 
 
@@ -164,7 +165,7 @@ function Home() {
                 className="rounded-3xl border border-border bg-background px-5 py-6 text-center shadow-sm"
               >
                 <p className="font-display text-3xl font-semibold text-primary sm:text-4xl">
-                  {stat.value}
+                  <CountUp value={stat.value} />
                 </p>
                 <p className="mt-1 text-sm text-muted-foreground">{stat.label}</p>
               </div>
