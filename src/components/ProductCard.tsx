@@ -9,7 +9,7 @@ export function ProductCard({
   imageUrl,
 }: {
   product: Product;
-  imageUrl?: string;
+  imageUrl?: string | undefined;
 }) {
   const { add } = useCart();
   const defaultLength = product.lengths[Math.floor(product.lengths.length / 2)] ?? product.lengths[0]!;
