@@ -21,6 +21,8 @@
 @theme inline {
   --font-display: "Fredoka", ui-sans-serif, system-ui, sans-serif;
   --font-sans: "Nunito Sans", ui-sans-serif, system-ui, sans-serif;
+  --font-condensed: "Bebas Neue", "Fredoka", ui-sans-serif, sans-serif;
+  --font-script: "Caveat", cursive;
   --radius-sm: calc(var(--radius) - 4px);
   --radius-md: calc(var(--radius) - 2px);
   --radius-lg: var(--radius);
