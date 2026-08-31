@@ -15,6 +15,7 @@ import { formatPrice, type Product } from "@/lib/shop";
 import { SearchTypewriter } from "@/components/SearchTypewriter";
 import { HeroFolders } from "@/components/HeroFolders";
 import { CollectionShowcase } from "@/components/CollectionShowcase";
+import { BestSellerBanner } from "@/components/BestSellerBanner";
 import { CountUp } from "@/components/CountUp";
 import { ContactForm } from "@/components/ContactForm";
 
@@ -149,6 +150,9 @@ function Home() {
         </div>
       </section>
 
+
+      {/* BEST SELLER BANNER */}
+      <BestSellerBanner />
 
       {/* SHOP BY COLLECTION — interactive posters + active collection grid */}
       <CollectionShowcase products={products} />
