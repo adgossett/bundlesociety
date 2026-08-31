@@ -88,6 +88,15 @@
   display: none;
 }
 
+@utility shadow-navbar-glow {
+  box-shadow:
+    0 1px 0 0 color-mix(in oklch, var(--primary) 45%, transparent),
+    0 8px 30px -10px color-mix(in oklch, var(--primary) 30%, transparent),
+    0 16px 48px -20px color-mix(in oklch, var(--secondary) 25%, transparent),
+    0 1px 3px 0 oklch(0 0 0 / 0.05);
+}
+
+
 
 :root {
   --radius: 1.5rem;
