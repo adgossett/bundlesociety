@@ -52,12 +52,6 @@ export function HeroFolders() {
       aria-label="Product folders"
       className="pointer-events-none absolute top-[10%] right-[18%] hidden aspect-[928/1152] w-[min(50vw,38rem)] select-none md:block lg:right-[26%] xl:right-[34%]"
     >
-      {/* Clean white card surface behind the folder artwork */}
-      <div
-        aria-hidden
-        className="absolute -inset-[6%] rounded-[2.5rem] bg-white shadow-card"
-      />
-
       <img
         src={flyerEmpty}
         alt=""
