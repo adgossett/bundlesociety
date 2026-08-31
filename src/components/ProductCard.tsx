@@ -4,7 +4,13 @@ import { toast } from "sonner";
 import { useCart } from "@/lib/cart";
 import { formatPrice, imageFor, type Product } from "@/lib/shop";
 
-export function ProductCard({ product }: { product: Product }) {
+export function ProductCard({
+  product,
+  imageUrl,
+}: {
+  product: Product;
+  imageUrl?: string;
+}) {
   const { add } = useCart();
   const defaultLength = product.lengths[Math.floor(product.lengths.length / 2)] ?? product.lengths[0]!;
 
@@ -30,7 +36,7 @@ export function ProductCard({ product }: { product: Product }) {
       <div className="relative overflow-hidden rounded-2xl border border-border bg-card">
         <Link to="/shop/$slug" params={{ slug: product.slug }} aria-label={product.name}>
           <img
-            src={imageFor(product.image_key)}
+            src={imageUrl ?? imageFor(product.image_key)}
             alt={`${product.name} — ${product.texture} hair bundles`}
             loading="lazy"
             width={1024}
