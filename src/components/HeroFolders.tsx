@@ -55,12 +55,12 @@ export function HeroFolders() {
       {/* Outer glow that spills past the folder artwork */}
       <div
         aria-hidden
-        className="absolute -right-[10%] top-[5%] aspect-square w-[55%] rounded-full bg-primary/30"
+        className="absolute -right-[10%] top-[5%] aspect-square w-[55%] rounded-full bg-primary/35"
         style={{ filter: "blur(64px)" }}
       />
       <div
         aria-hidden
-        className="absolute bottom-[10%] -left-[5%] aspect-square w-[45%] rounded-full bg-pink-deep/25"
+        className="absolute bottom-[10%] -left-[5%] aspect-square w-[45%] rounded-full bg-pink-deep/30"
         style={{ filter: "blur(56px)" }}
       />
 
@@ -76,24 +76,32 @@ export function HeroFolders() {
       {/* Soft blobs sitting on the white space behind the folders */}
       <div
         aria-hidden
-        className="absolute left-[8%] top-[8%] aspect-square w-[30%] rounded-full bg-primary/20"
-        style={{ filter: "blur(40px)" }}
-      />
-      <div
-        aria-hidden
-        className="absolute left-[5%] top-[30%] aspect-square w-[26%] rounded-full bg-pink-deep/[0.18]"
-        style={{ filter: "blur(36px)" }}
-      />
-      <div
-        aria-hidden
-        className="absolute left-[12%] bottom-[22%] aspect-square w-[28%] rounded-full bg-primary/[0.18]"
-        style={{ filter: "blur(38px)" }}
-      />
-      <div
-        aria-hidden
-        className="absolute right-[18%] bottom-[10%] aspect-square w-[22%] rounded-full bg-pink-deep/[0.15]"
+        className="absolute left-[6%] top-[6%] aspect-square w-[32%] rounded-full bg-primary/35"
         style={{ filter: "blur(32px)" }}
       />
+      <div
+        aria-hidden
+        className="absolute left-[2%] top-[28%] aspect-square w-[28%] rounded-full bg-pink-deep/30"
+        style={{ filter: "blur(28px)" }}
+      />
+      <div
+        aria-hidden
+        className="absolute left-[10%] bottom-[18%] aspect-square w-[30%] rounded-full bg-primary/30"
+        style={{ filter: "blur(30px)" }}
+      />
+      <div
+        aria-hidden
+        className="absolute right-[16%] bottom-[8%] aspect-square w-[24%] rounded-full bg-pink-deep/25"
+        style={{ filter: "blur(26px)" }}
+      />
+
+      {/* Tiny decorative dots matching the logo dot motif */}
+      <span aria-hidden className="absolute left-[28%] top-[18%] size-2 rounded-full bg-primary/60" />
+      <span aria-hidden className="absolute left-[32%] top-[22%] size-1.5 rounded-full bg-pink-deep/60" />
+      <span aria-hidden className="absolute left-[24%] top-[46%] size-1.5 rounded-full bg-pink-deep/55" />
+      <span aria-hidden className="absolute left-[30%] top-[50%] size-2 rounded-full bg-primary/55" />
+      <span aria-hidden className="absolute left-[26%] bottom-[26%] size-2 rounded-full bg-primary/55" />
+      <span aria-hidden className="absolute left-[34%] bottom-[22%] size-1.5 rounded-full bg-pink-deep/55" />
 
       {/* Curved arrows pointing at each folder from different sides */}
       <svg
