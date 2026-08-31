@@ -151,9 +151,6 @@ function Home() {
       </section>
 
 
-      {/* BEST SELLER BANNER */}
-      <BestSellerBanner />
-
       {/* SHOP BY COLLECTION — interactive posters + active collection grid */}
       <CollectionShowcase products={products} />
 
@@ -342,6 +339,9 @@ function Home() {
           </Link>
         </div>
       </section>
+
+      {/* BEST SELLER BANNER */}
+      <BestSellerBanner />
 
       <ContactForm />
 
