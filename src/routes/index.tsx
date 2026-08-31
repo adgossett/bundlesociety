@@ -340,6 +340,9 @@ function Home() {
         </div>
       </section>
 
+      {/* BEST SELLER BANNER */}
+      <BestSellerBanner />
+
       <ContactForm />
 
 
