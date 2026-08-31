@@ -41,7 +41,7 @@ export function BestSellerBanner() {
           </div>
 
           {/* Top-left callout: text then elbow line down and right into the product */}
-          <div className="absolute left-0 top-2 w-[26%]">
+          <div className="absolute left-0 top-2 w-[24%]">
             <p className="text-[0.5rem] font-bold uppercase leading-tight tracking-[0.14em] text-foreground sm:text-[0.58rem]">
               Raw donor hair,
               <br />
@@ -60,7 +60,7 @@ export function BestSellerBanner() {
           </div>
 
           {/* Right callout: text then elbow line down and left into the product */}
-          <div className="absolute right-0 top-1/3 w-[26%]">
+          <div className="absolute right-0 top-1/3 w-[24%]">
             <p className="text-right text-[0.5rem] font-bold uppercase leading-tight tracking-[0.14em] text-foreground sm:text-[0.58rem]">
               6x6 HD lace
             </p>
