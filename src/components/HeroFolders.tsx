@@ -149,10 +149,6 @@ export function HeroFolders() {
               className={`pointer-events-none absolute -bottom-3 left-1/2 -translate-x-1/2 whitespace-nowrap rounded-full px-3 py-1 font-display text-[11px] font-semibold text-foreground shadow-card transition-all duration-300 ${folder.accent} ${
                 isActive ? "opacity-100 translate-y-0" : "opacity-0 translate-y-1 group-hover:opacity-100 group-hover:translate-y-0"
               }`}
-              style={{
-                textShadow:
-                  "0 0 4px #fff, 0 0 10px rgba(255,255,255,0.95), 0 0 20px rgba(255,255,255,0.85), 0 0 36px rgba(255,255,255,0.65), 0 0 56px rgba(255,255,255,0.45)",
-              }}
             >
               {folder.label}
             </span>
