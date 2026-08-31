@@ -80,7 +80,7 @@ export function SiteHeader() {
           to="/"
           aria-label="The Bundle Society home"
         >
-          <Logo size="sm" />
+          <Logo size="xs" />
         </Link>
 
         {/* Desktop search button (left) */}
