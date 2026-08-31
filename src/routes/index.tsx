@@ -16,6 +16,8 @@ import { SearchTypewriter } from "@/components/SearchTypewriter";
 import { HeroFolders } from "@/components/HeroFolders";
 import { CollectionShowcase } from "@/components/CollectionShowcase";
 import { CountUp } from "@/components/CountUp";
+import { ContactForm } from "@/components/ContactForm";
+
 
 
 
@@ -336,6 +338,9 @@ function Home() {
           </Link>
         </div>
       </section>
+
+      <ContactForm />
+
 
     </div>
   );
