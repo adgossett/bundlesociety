@@ -79,7 +79,7 @@ export function CollectionShowcase({ products }: { products: Product[] }) {
                 </span>
                 <div className="relative aspect-[4/5] w-full overflow-hidden">
                   <img
-                    src={imageFor(c.imageKey)}
+                    src={c.image}
                     alt={`${c.title} collection`}
                     loading="lazy"
                     className="absolute inset-0 size-full object-cover opacity-90 transition-transform duration-500 group-hover:scale-105"
@@ -118,7 +118,7 @@ export function CollectionShowcase({ products }: { products: Product[] }) {
             {current.heading}
           </h2>
           <p className="mx-auto mt-3 max-w-md text-center text-sm text-muted-foreground">
-            Premium human hair bundles — soft, full and long-lasting. Tap a collection above to switch.
+            {current.blurb} Tap a collection above to switch.
           </p>
           <div className="mt-10 grid grid-cols-2 gap-x-5 gap-y-10 lg:grid-cols-4 [&_.rounded-2xl]:rounded-none [&_.rounded-2xl]:border [&_.rounded-2xl]:border-border [&_.rounded-2xl]:bg-card">
             {shown.map((product) => (
