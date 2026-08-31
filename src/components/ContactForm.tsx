@@ -75,7 +75,7 @@ export function ContactForm() {
                 onChange={set("name")}
                 maxLength={100}
                 placeholder="Your name"
-                className="mt-2 w-full rounded-full border border-border bg-background px-4 py-3 text-sm outline-none transition-colors placeholder:text-muted-foreground focus:border-primary"
+                className="mt-2 w-full border border-border bg-background px-4 py-3 text-sm outline-none transition-colors placeholder:text-muted-foreground focus:border-primary"
               />
             </label>
             <label className="block">
