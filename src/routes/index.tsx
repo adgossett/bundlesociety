@@ -6,8 +6,6 @@ import {
   ArrowDown,
   ArrowRight,
   CreditCard,
-  Heart,
-  Instagram,
   ShoppingCart,
   Star,
   Truck,
