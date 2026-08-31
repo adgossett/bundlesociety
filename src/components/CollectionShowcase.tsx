@@ -135,7 +135,7 @@ export function CollectionShowcase({ products }: { products: Product[] }) {
             {shown.map((product, i) => (
               <div key={product.id} className="relative">
                 <span className="pointer-events-none absolute inset-x-0 top-0 z-10 block bg-primary py-1 text-center text-[8px] font-bold uppercase tracking-[0.35em] text-primary-foreground">
-                  {current.title}
+                  {bannerFor(product.name, current.title)}
                 </span>
                 <ProductCard
                   product={product}
