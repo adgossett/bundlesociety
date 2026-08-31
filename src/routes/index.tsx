@@ -261,6 +261,28 @@ function Home() {
         </div>
       </section>
 
+      {/* FOLLOW ON INSTAGRAM — moving banner */}
+      <a
+        href="https://instagram.com"
+        target="_blank"
+        rel="noreferrer"
+        aria-label="Follow The Bundle Society on Instagram"
+        className="group block overflow-hidden border-y border-border/60 bg-card py-3 transition-colors hover:bg-pink-soft/40"
+      >
+        <div className="flex w-max animate-marquee items-center gap-10 whitespace-nowrap">
+          {Array.from({ length: 12 }).map((_, i) => (
+            <span
+              key={i}
+              className="flex items-center gap-3 font-display text-sm font-bold uppercase tracking-[0.25em] text-foreground"
+            >
+              <span className="size-2 rounded-full bg-primary" />
+              Follow on Instagram
+              <span className="size-2 rounded-full bg-pink-deep" />
+            </span>
+          ))}
+        </div>
+      </a>
+
       {/* SOCIAL — Instagram banner */}
       <section className="relative">
         <a
