@@ -85,10 +85,10 @@ export function CollectionShowcase({ products }: { products: Product[] }) {
                     : "border-border shadow-sm hover:border-pink-deep"
                 }`}
               >
-                <span className="absolute left-1/2 top-4 z-10 w-max -translate-x-1/2 whitespace-nowrap bg-primary px-2 py-0.5 text-[8px] font-bold uppercase tracking-[0.25em] text-primary-foreground backdrop-blur">
-                  Shop by collection
-                </span>
                 <div className="relative aspect-[4/5] w-full overflow-hidden">
+                  <span className="absolute inset-x-0 top-0 z-10 block bg-primary py-1 text-center text-[8px] font-bold uppercase tracking-[0.35em] text-primary-foreground">
+                    Shop by collection
+                  </span>
                   <img
                     src={c.image}
                     alt={`${c.title} collection`}
@@ -133,11 +133,15 @@ export function CollectionShowcase({ products }: { products: Product[] }) {
           </p>
           <div className="mt-12 grid grid-cols-2 gap-x-5 gap-y-10 lg:grid-cols-4 [&_.rounded-2xl]:rounded-none [&_.rounded-2xl]:border [&_.rounded-2xl]:border-border [&_.rounded-2xl]:bg-card">
             {shown.map((product, i) => (
-              <ProductCard
-                key={product.id}
-                product={product}
-                imageUrl={gridImages[i % gridImages.length]}
-              />
+              <div key={product.id} className="relative">
+                <span className="pointer-events-none absolute inset-x-0 top-0 z-10 block bg-primary py-1 text-center text-[8px] font-bold uppercase tracking-[0.35em] text-primary-foreground">
+                  {current.title}
+                </span>
+                <ProductCard
+                  product={product}
+                  imageUrl={gridImages[i % gridImages.length]}
+                />
+              </div>
             ))}
           </div>
         </div>
