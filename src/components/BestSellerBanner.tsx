@@ -30,30 +30,57 @@ export function BestSellerBanner() {
         </div>
 
         {/* Product with callouts */}
-        <div className="relative mx-auto w-full max-w-sm">
-          <img
-            src={wigAsset.url}
-            alt="Burgundy body wave 6x6 HD lace closure wig"
-            loading="lazy"
-            className="mx-auto w-full object-cover"
-          />
+        <div className="relative mx-auto w-full max-w-sm px-16 pb-10 pt-14 sm:px-20">
+          <div className="mx-auto aspect-[3/4] w-full overflow-hidden">
+            <img
+              src={wigAsset.url}
+              alt="Burgundy body wave 6x6 HD lace closure wig"
+              loading="lazy"
+              className="h-full w-full object-cover object-center"
+            />
+          </div>
 
-          <span className="absolute left-2 top-3 max-w-[8rem] text-[0.55rem] font-bold uppercase leading-tight tracking-[0.15em] text-muted-foreground sm:text-[0.6rem]">
-            Raw donor hair,
-            <br />
-            350g density
-            <span className="mt-1 block h-px w-16 bg-pink-deep" />
-          </span>
+          {/* Top-left callout: text, elbow line down then right with arrow up into product */}
+          <div className="absolute left-0 top-0 w-36 sm:w-40">
+            <p className="text-[0.5rem] font-bold uppercase leading-tight tracking-[0.14em] text-foreground sm:text-[0.58rem]">
+              Raw donor hair,
+              <br />
+              350g density
+            </p>
+            <svg
+              viewBox="0 0 120 56"
+              className="mt-1 w-full text-foreground"
+              fill="none"
+              stroke="currentColor"
+              strokeWidth="2"
+            >
+              <path d="M4 6 V50 H112" />
+              <path d="M104 44 L112 50 L104 56" strokeLinecap="round" strokeLinejoin="round" />
+            </svg>
+          </div>
 
-          <span className="absolute right-2 top-1/3 max-w-[7rem] text-right text-[0.55rem] font-bold uppercase leading-tight tracking-[0.15em] text-muted-foreground sm:text-[0.6rem]">
-            6x6 HD lace
-            <span className="ml-auto mt-1 block h-px w-14 bg-primary" />
-          </span>
+          {/* Right callout: text, elbow line down then left with arrow */}
+          <div className="absolute right-0 top-1/4 w-32 sm:w-36">
+            <p className="text-right text-[0.5rem] font-bold uppercase leading-tight tracking-[0.14em] text-foreground sm:text-[0.58rem]">
+              6x6 HD lace
+            </p>
+            <svg
+              viewBox="0 0 120 56"
+              className="mt-1 w-full text-foreground"
+              fill="none"
+              stroke="currentColor"
+              strokeWidth="2"
+            >
+              <path d="M116 6 V50 H8" />
+              <path d="M16 44 L8 50 L16 56" strokeLinecap="round" strokeLinejoin="round" />
+            </svg>
+          </div>
 
-          <span className="absolute -bottom-4 right-0 rounded-full border-2 border-foreground bg-background px-5 py-2 font-display text-sm font-bold tracking-widest text-foreground shadow-card">
+          <span className="absolute bottom-0 right-2 rounded-full border-2 border-foreground bg-background px-5 py-2 font-display text-sm font-bold tracking-widest text-foreground shadow-card">
             $260.00
           </span>
         </div>
+
       </div>
     </section>
   );
